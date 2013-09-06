@@ -75,6 +75,9 @@ $(function(){
 	}
 
 	$(document).on('nev:nodeselect', function(evt, node) {
+		if (node == undefined) {
+			return;
+		}
 		var data = node['data'];
 		if (data['type'] == 'congress') {
 			$('#result').hide();

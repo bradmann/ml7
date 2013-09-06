@@ -398,8 +398,10 @@ function mouseup(params) {
 function click(params) {
 	var coords = params['coords'];
 	var idx = getNodeIdxAtCoords(coords);
-	if (selectedIdx != -1) {
-		nodes[selectedIdx]['selected'] = false;
+	for (var index in nodes) {
+		if (nodes[index]['selected'] == true) {
+			nodes[index]['selected'] = false;
+		}
 	}
 	if (idx === null) {
 		for (var index in links) {
@@ -407,6 +409,10 @@ function click(params) {
 		}
 		postMessage({"cmd": "nodeSelect", "params": {"node": null}});
 		postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
+		if (selectedIdx != -1) {
+			nodes[selectedIdx]['selected'] = false;
+		}
+		selectedIdx = -1;
 		return;
 	}
 	var node = nodes[idx];
