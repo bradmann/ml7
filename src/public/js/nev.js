@@ -7,6 +7,7 @@
 			this.engine = engine;
 			this.canvas = canvas;
 			this.ctx = canvas.getContext('2d');
+			this.ctx.setTransform(1,0,0,1,0,0);
 			this.ctx.scale(1, -1);
 			this.ctx.translate(this.width/2, -this.height/2);
 			this.interval = Math.floor(1/fps * 1000);
@@ -37,6 +38,10 @@
 				engine.postMessage({"cmd": "pin", "params": {"coords": self.getWorldCoords(evt)}});
 				self.mousedown = false;
 			}, false);
+		},
+		clear: function() {
+			this.ctx.setTransform(1,0,0,1,0,0);
+			this.ctx.clearRect(0, 0, canvas.width, canvas.height);
 		},
 		getWorldCoords: function(evt) {
 			var bounds = this.canvas.getBoundingClientRect();
@@ -124,7 +129,7 @@
 		}
 	};
 	
-	NEV = Object.create({
+	NEV = {
 		visEngine: null, computeEngine: null, canvas: null,
 		nodes: [], links: [],
 		init: function(canvas, fps) {
@@ -157,6 +162,11 @@
 		nodeSelect: function(params) {
 			var node = params['node'];
 			$(document).trigger('nev:nodeselect', node);
+		},
+		destroy: function() {
+			this.visEngine.clear();
+			this.computeEngine.terminate();
+			delete this.visEngine;
 		}
-	});
+	};
 })();

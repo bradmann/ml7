@@ -15,6 +15,7 @@ if (typeof Object.create !== 'function') {
 }
 
 $(function(){
+	var engine = null;
 	var canvas = $('#canvas')[0];
 	var nodes = [], links = [];
 	var mass = 10;
@@ -28,6 +29,10 @@ $(function(){
 	}
 
 	function search() {
+		if (engine != null) {
+			engine.destroy();
+			delete engine;
+		}
 		$.ajax({
 			url: '/main/search.json',
 			data: {'q': $('#search').val()},
@@ -62,8 +67,9 @@ $(function(){
 					}
 				}
 
-				NEV.init(canvas, 60);
-				NEV.loadGraph(nodes, links);
+				engine = Object.create(NEV);
+				engine.init(canvas, 60);
+				engine.loadGraph(nodes, links);
 			}
 		});
 	}
