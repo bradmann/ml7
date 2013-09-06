@@ -75,13 +75,14 @@
       <collection-lexicon>true</collection-lexicon>
       <directory-creation>manual</directory-creation>
       <maintain-last-modified>false</maintain-last-modified>
-<!--
+
       <fragment-roots>
         <fragment-root>
-          <namespace-uri>http://www.marklogic.com/ns/sample</namespace-uri>
-          <localname>frag-root</localname>
+          <namespace-uri>http://xml.house.gov/schemas/uslm/1.0</namespace-uri>
+          <localname>section</localname>
         </fragment-root>
       </fragment-roots>
+<!--
       <fragment-parents>
         <fragment-parent>
           <namespace-uri>http://www.marklogic.com/ns/sample</namespace-uri>

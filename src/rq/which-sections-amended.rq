@@ -1,0 +1,12 @@
+PREFIX house: <http://xml.house.gov/schemas/uslm/1.0/>
+PREFIX dcterms: <http://purl.org/dc/elements/1.1/>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?section
+WHERE 
+{
+  ?amendment house:amends ?section .
+  ?amendment dcterms:source "Pub. L. 85–207" .
+}

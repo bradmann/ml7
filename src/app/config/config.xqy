@@ -34,6 +34,13 @@ declare namespace rest = "http://marklogic.com/appservices/rest";
  :)
 declare variable $c:ROXY-OPTIONS :=
   <options>
+    <default-controller>main</default-controller>
+
+    <!-- the default funciton that gets called when none is specified -->
+    <default-function>main</default-function>
+
+    <!-- the default format to use when rendering views -->
+    <default-format>html</default-format>
     <layouts>
       <layout format="html">three-column</layout>
     </layouts>
@@ -52,7 +59,7 @@ declare variable $c:ROXY-OPTIONS :=
  :)
 declare variable $c:ROXY-ROUTES :=
   <routes xmlns="http://marklogic.com/appservices/rest">
-    <request uri="^/my/awesome/route" />
+    <request uri="^/util/.*" />
     {
       $def:ROXY-ROUTES/rest:request
     }
