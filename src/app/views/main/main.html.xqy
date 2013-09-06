@@ -38,5 +38,6 @@ declare option xdmp:mapping "false";
     <input type="text" placeholder="search" id="search"></input><br/>
     <canvas id="canvas" width="1000" height="500"></canvas>
     <div id="result">&nbsp;</div>
+    <iframe id="resultframe">&nbsp;</iframe>
   </body>
 </html>

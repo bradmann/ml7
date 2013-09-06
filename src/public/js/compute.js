@@ -398,6 +398,9 @@ function mouseup(params) {
 function click(params) {
 	var coords = params['coords'];
 	var idx = getNodeIdxAtCoords(coords);
+	if (selectedIdx != -1) {
+		nodes[selectedIdx]['selected'] = false;
+	}
 	if (idx === null) {
 		for (var index in links) {
 			links[index]['selected'] = false;

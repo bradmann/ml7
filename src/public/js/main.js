@@ -70,6 +70,28 @@ $(function(){
 
 	$(document).on('nev:nodeselect', function(evt, node) {
 		var data = node['data'];
+		if (data['type'] == 'congress') {
+			$('#result').hide();
+			var id = data['id'];
+			var url = 'http://en.wikipedia.org/wiki/' + id.toString();
+			if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
+				url += 'st';
+			} else if (id.toString().substr(-1) == '2') {
+				url += 'nd';
+			} else if (id.toString().substr(-1) == '3') {
+				url += 'rd';
+			} else {
+				url += 'th';
+			}
+			url += '_United_States_Congress';
+			$('#resultframe').attr('src', url);
+			$('#resultframe').show();
+			return;
+		} else {
+			$('#resultframe').hide();
+			$('#result').show();
+		}
+
 		$.ajax({
 			url: '/main/content.json',
 			data: data,

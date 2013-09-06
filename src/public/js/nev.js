@@ -83,6 +83,11 @@
 				this.ctx.beginPath();
 				this.ctx.arc(pos[0], pos[1], mass, 0, 2 * Math.PI, false);
 				this.ctx.closePath();
+				if (node['selected']) {
+					this.ctx.lineWidth = 3;
+				} else {
+					this.ctx.lineWidth = 1;
+				}
 				this.ctx.stroke();
 				this.ctx.fill();
 			}
