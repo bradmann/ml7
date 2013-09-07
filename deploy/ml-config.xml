@@ -29,6 +29,7 @@
       <url-rewriter>@ml.url-rewriter</url-rewriter>
       <error-handler>@ml.error-handler</error-handler>
       <rewrite-resolves-globally>@ml.rewrite-resolves-globally</rewrite-resolves-globally>
+      <collation>http://marklogic.com/collation/codepoint</collation>
       <!-- <ssl-certificate-template>@ml.ssl-certificate-template</ssl-certificate-template> -->
     </http-server>
     @ml.test-appserver
@@ -75,7 +76,6 @@
       <collection-lexicon>true</collection-lexicon>
       <directory-creation>manual</directory-creation>
       <maintain-last-modified>false</maintain-last-modified>
-
       <fragment-roots>
         <fragment-root>
           <namespace-uri>http://xml.house.gov/schemas/uslm/1.0</namespace-uri>
@@ -138,20 +138,15 @@
 -->
       </range-element-indexes>
       <range-element-attribute-indexes>
-<!--
-        Sample for:
-          <person name="bob" xmlns="http://marklogic.com/ns/sample"/>
-
         <range-element-attribute-index>
           <scalar-type>string</scalar-type>
-          <parent-namespace-uri>http://marklogic.com/ns/sample</parent-namespace-uri>
-          <parent-localname>person</parent-localname>
+          <parent-namespace-uri>http://xml.house.gov/schemas/uslm/1.0</parent-namespace-uri>
+          <parent-localname>section</parent-localname>
           <namespace-uri/>
-          <localname>name</localname>
+          <localname>identifier</localname>
           <collation>http://marklogic.com/collation/codepoint</collation>
           <range-value-positions>false</range-value-positions>
         </range-element-attribute-index>
--->
       </range-element-attribute-indexes>
       <range-field-indexes>
 <!--

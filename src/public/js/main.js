@@ -101,12 +101,13 @@ $(function(){
 			$('#result').show();
 		}
 
+		data['q'] = $('#search').val();
 		$.ajax({
 			url: '/main/content.json',
 			data: data,
 			type: 'get',
 			success: function(data) {
-				$('#result').html(data['message']);
+				$('#result').html('<article>' + data['message'] + '</article>');
 			}
 		});
 	});

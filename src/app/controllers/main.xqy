@@ -28,6 +28,7 @@ import module namespace s = "http://marklogic.com/roxy/models/search" at "/app/m
 import module namespace sem = "http://marklogic.com/semantics" at "/MarkLogic/semantics.xqy";
 
 declare namespace house = "http://xml.house.gov/schemas/uslm/1.0";
+declare namespace xhtml = "http://www.w3.org/1999/xhtml";
 
 declare option xdmp:mapping "false";
 
@@ -40,7 +41,7 @@ declare function c:main() as item()*
 declare function c:search() as item()*
 {
   let $q := req:get("q", (), "type=xs:string")
-  let $sections := cts:search(//house:section, $q)/@identifier/fn:string()
+  let $sections := cts:element-attribute-values(xs:QName("house:section"), xs:QName("identifier"), (), (), $q)
   let $resmap := map:map()
   let $build-map :=
     for $s in $sections
@@ -79,12 +80,18 @@ declare function c:content() as item()*
 {
   let $type := req:get('type', (), 'type=xs:string')
   let $id := req:get('id', (), 'type=xs:string')
+  let $q := req:get('q', (), 'type=xs:string')
 
   let $data :=
     if ($type = 'section') then
       let $id := fn:tokenize($id, '_')
       let $id := '/us/usc/' || $id[1] || '/' || $id[2]
-      return cts:search(//house:section, cts:element-attribute-value-query(xs:QName('house:section'), xs:QName('identifier'), $id))
+      let $section := cts:search(//house:section, cts:element-attribute-value-query(xs:QName('house:section'), xs:QName('identifier'), $id))
+      let $heading := <h4>{$section/*:num || $section/*:heading}</h4>
+      let $content :=
+        for $subsection in $section/*:subsection
+        return cts:highlight(<p>{fn:string($subsection)}</p>, cts:word-query($q), <span class="highlight">{$cts:text}</span>)
+      return <section xmlns="http://www.w3.org/1999/xhtml">{$heading, $content}</section>
     else
       ()
   let $response := map:map()

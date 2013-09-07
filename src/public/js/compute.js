@@ -341,7 +341,7 @@ function tick() {
 	
 	postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
 
-	if (entropy > 1000) {
+	if (entropy > 2000) {
 		damping -= .05;
 	}
 	
