@@ -29,10 +29,13 @@ $(function(){
 	}
 
 	function search() {
+		$('#search').css('background', 'url(/images/loading.gif) no-repeat right 10px center');
 		if (engine != null) {
 			engine.destroy();
 			delete engine;
 		}
+		$('#result').hide();
+		$('#resultframe').hide();
 		$.ajax({
 			url: '/main/search.json',
 			data: {'q': $('#search').val()},
@@ -70,9 +73,19 @@ $(function(){
 				engine = Object.create(NEV);
 				engine.init(canvas, 60);
 				engine.loadGraph(nodes, links);
+				$('#search').css('background', '');
 			}
 		});
 	}
+
+	$('#canvas').on('mousewheel', function(evt, delta, deltaX, deltaY) {
+		evt.preventDefault();
+		if (delta < 0) {
+			engine.zoomOut(-delta);
+		} else {
+			engine.zoomIn(delta);
+		}
+	});
 
 	$(document).on('nev:nodeselect', function(evt, node) {
 		if (node == undefined) {

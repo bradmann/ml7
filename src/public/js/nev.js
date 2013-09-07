@@ -8,7 +8,7 @@
 			this.canvas = canvas;
 			this.ctx = canvas.getContext('2d');
 			this.ctx.setTransform(1,0,0,1,0,0);
-			this.ctx.scale(1, -1);
+			this.ctx.scale(this.scaleX, this.scaleY);
 			this.ctx.translate(this.width/2, -this.height/2);
 			this.interval = Math.floor(1/fps * 1000);
 			this.ctx.textAlign = 'center';
@@ -47,7 +47,7 @@
 			var bounds = this.canvas.getBoundingClientRect();
 			var x = evt.clientX - bounds.left - 1;
 			var y = evt.clientY - bounds.top - 1;
-			return [(x*this.scaleX) - (this.width/2), (y*this.scaleY) + (this.height/2)];
+			return [(x/this.scaleX) - ((this.width / this.scaleX)/2), -(y/this.scaleY) + ((this.height / this.scaleY)/2)];
 		},
 		draw: function() {
 			this.ctx.clearRect(-this.width/2, -this.height/2, this.width, this.height);
@@ -73,16 +73,15 @@
 			var mass = 10;
 			var vel = node['v'];
 			var force = node['f'];
+			this.ctx.save();
+			this.ctx.scale(this.scaleX, this.scaleY);
 			if (node['img']) {
 				var img = node['img'];
 				if (!this.images[img]) {
 					this.images[img] = new Image();
 					this.images[img].src = img;
 				}
-				this.ctx.save();
-				this.ctx.scale(1, -1);
 				this.ctx.drawImage(this.images[img], pos[0] - mass, -pos[1] - mass, mass*2, mass*2);
-				this.ctx.restore();
 			} else {
 				this.ctx.fillStyle = node['c'];
 				this.ctx.beginPath();
@@ -99,16 +98,16 @@
 			
 			if (node['text']) {
 				var txt = node['text'];
-				this.ctx.save();
-				this.ctx.scale(1, -1);
 				this.ctx.fillStyle = "#000000";
-				this.ctx.fillText(txt, pos[0], - pos[1] + 20);
-				this.ctx.restore();
+				this.ctx.fillText(txt, pos[0], pos[1] + 20);
 			}
+			this.ctx.restore();
 		},
 		drawLink: function(link) {
 			var posA = this.nodes[link['a']]['r'];
 			var posB = this.nodes[link['b']]['r'];
+			this.ctx.save();
+			this.ctx.scale(this.scaleX, this.scaleY);
 			this.ctx.beginPath();
 			this.ctx.moveTo(posA[0], posA[1]);
 			this.ctx.lineTo(posB[0], posB[1]);
@@ -119,13 +118,30 @@
 				this.ctx.strokeStyle = '#cccccc';
 			}
 			this.ctx.stroke();
+			this.ctx.restore();
 		},
 		message: function(message) {
 			this.ctx.save();
-			this.ctx.scale(1, -1);
+			this.ctx.scale(this.scaleX, this.scaleY);
 			this.ctx.fillStyle = "#000000";
 			this.ctx.fillText(message, -(this.width / 2) + 100, (this.height / 2));
 			this.ctx.restore();
+		},
+		zoomIn: function(delta) {
+			if (this.scaleY - (delta * .1) > 0) {
+				return;
+			}
+			this.scaleX += (delta * .05);
+			this.scaleY -= (delta * .05);
+			this.draw();
+		},
+		zoomOut: function(delta) {
+			if (this.scaleX - (delta * .1) < 0) {
+				return;
+			}
+			this.scaleX -= (delta * .05);
+			this.scaleY += (delta * .05);
+			this.draw();
 		}
 	};
 	
@@ -167,6 +183,12 @@
 			this.visEngine.clear();
 			this.computeEngine.terminate();
 			delete this.visEngine;
+		},
+		zoomIn: function(delta) {
+			this.visEngine.zoomIn(delta);
+		},
+		zoomOut: function(delta) {
+			this.visEngine.zoomOut(delta);
 		}
 	};
 })();

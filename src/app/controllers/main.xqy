@@ -26,6 +26,7 @@ import module namespace req = "http://marklogic.com/roxy/request" at "/roxy/lib/
 import module namespace s = "http://marklogic.com/roxy/models/search" at "/app/models/search-lib.xqy";
 
 import module namespace sem = "http://marklogic.com/semantics" at "/MarkLogic/semantics.xqy";
+import module namespace search = "http://marklogic.com/appservices/search" at "/MarkLogic/appservices/search/search.xqy";
 
 declare namespace house = "http://xml.house.gov/schemas/uslm/1.0";
 declare namespace xhtml = "http://www.w3.org/1999/xhtml";
@@ -41,7 +42,7 @@ declare function c:main() as item()*
 declare function c:search() as item()*
 {
   let $q := req:get("q", (), "type=xs:string")
-  let $sections := cts:element-attribute-values(xs:QName("house:section"), xs:QName("identifier"), (), (), $q)
+  let $sections := cts:element-attribute-values(xs:QName("house:section"), xs:QName("identifier"), (), (), cts:query(search:parse($q)))
   let $resmap := map:map()
   let $build-map :=
     for $s in $sections

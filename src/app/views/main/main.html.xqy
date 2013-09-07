@@ -30,6 +30,7 @@ declare option xdmp:mapping "false";
   <head>
     <link rel="stylesheet" href="css/main.css"/>
     <script src="js/lib/jquery-1.7.1.min.js"></script>
+    <script src="js/lib/jquery.mousewheel.js"></script>
     <script src="js/compute.js"></script>
     <script src="js/main.js"></script>
     <script src="js/nev.js"></script>
