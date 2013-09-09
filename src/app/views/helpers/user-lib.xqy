@@ -52,3 +52,4 @@ declare function uv:build-login($login-link, $register-link)
     <a href="{$register-link}">register</a>
   </div>
 };
+

@@ -38,6 +38,7 @@ declare option xdmp:mapping "false";
   <body>
     <input type="text" placeholder="search" id="search"></input><br/>
     <canvas id="canvas" width="1000" height="500"></canvas>
+    <div id="tabdata"  width="295" height="500">&nbsp;</div>
     <div id="result">&nbsp;</div>
     <iframe id="resultframe">&nbsp;</iframe>
   </body>

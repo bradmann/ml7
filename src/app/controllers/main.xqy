@@ -88,10 +88,11 @@ declare function c:content() as item()*
       let $id := fn:tokenize($id, '_')
       let $id := '/us/usc/' || $id[1] || '/' || $id[2]
       let $section := cts:search(//house:section, cts:element-attribute-value-query(xs:QName('house:section'), xs:QName('identifier'), $id))
-      let $heading := <h4>{$section/*:num || $section/*:heading}</h4>
+      let $heading := <h4 xmlns="http://www.w3.org/1999/xhtml">{$section/*:num || cts:highlight(<p xmlns="http://www.w3.org/1999/xhtml">{fn:string($section/*:heading)}</p>, cts:query(search:parse($q)), <span class="highlight" xmlns="http://www.w3.org/1999/xhtml">{$cts:text}</span>)}</h4>
       let $content :=
-        for $subsection in $section/*:subsection
-        return cts:highlight(<p>{fn:string($subsection)}</p>, cts:word-query($q), <span class="highlight">{$cts:text}</span>)
+        for $subsection in $section/(*:subsection|*:paragraph|*:content|*:notes)
+        let $heading := if ($subsection/*:heading) then <h4 xmlns="http://www.w3.org/1999.xhtml">{$subsection/*:heading}</h4> else ()
+        return ($heading, cts:highlight(<p xmlns="http://www.w3.org/1999/xhtml">{fn:string($subsection)}</p>, cts:query(search:parse($q)), <span class="highlight">{$cts:text}</span>))
       return <section xmlns="http://www.w3.org/1999/xhtml">{$heading, $content}</section>
     else
       ()

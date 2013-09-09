@@ -6,8 +6,10 @@ import module namespace t-lib = "http://marklogic.com/semantics/triples-lib" at 
 
 declare namespace house = "http://xml.house.gov/schemas/uslm/1.0";
 
+let $_ := xdmp:log("Running 49")
+
 let $triples :=
-  for $law-doc in fn:collection("us-code")[1 to 5]/element()
+  for $law-doc in fn:collection("us-code")[45 to 49]/element()
   let $title := $law-doc//house:title 
   let $house-ns := fn:namespace-uri($title)
   let $subject := fn:concat($house-ns, "/", h-lib:identifier($title/@identifier))

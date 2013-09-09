@@ -24,6 +24,7 @@ body {
 	text-align:center;
 }
 
+  
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
     display:block;
@@ -95,9 +96,10 @@ input, select {
 }
 
 #canvas {width:1000px; height:500px; border:1px solid black; margin-top:10px}
-#search {font-size: 18pt; width: 1000px;}
-#result {width: 1000px; text-align: left; margin: 0 auto;}
-#resultframe {width: 1000px; height: 500px;}
+#search {font-size: 18pt; width: 1300px;}
+#result {width: 1300px; text-align: left; margin: 0 auto;}
+#resultframe {width: 1300px; height: 500px;}
+#tabdata  {display: inline-block; position: relative; width:295px; height:500px; border:1px solid black; margin-top:10px; overflow:scroll; text-align: left;}
 
 section p {text-indent: 30px;}
 span.highlight {background-color: #FFFF00;}
