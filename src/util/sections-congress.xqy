@@ -53,7 +53,7 @@ sem:sparql("
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   PREFIX congress: <http://congress.gov/>
  
-  SELECT DISTINCT ?amendment ?congress
+  SELECT DISTINCT ?section ?congress
   WHERE {
     <query> <returns> ?section .
     ?amendment house:amends <http://xml.house.gov/schemas/uslm/1.0/t16_s1445a> .
