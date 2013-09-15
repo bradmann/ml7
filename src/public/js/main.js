@@ -19,7 +19,23 @@ $(function(){
 	var canvas = $('#canvas')[0];
 	var nodes = [], links = [];
 	var mass = 10;
-
+	
+	function createWikipediaUrl(id) {
+		var url = 'http://en.wikipedia.org/wiki/' + id.toString();
+		if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
+			url += 'st';
+		} else if (id.toString().substr(-1) == '2') {
+			url += 'nd';
+		} else if (id.toString().substr(-1) == '3') {
+			url += 'rd';
+		} else {
+			url += 'th';
+		}
+		url += '_United_States_Congress';
+		return url;
+		
+	}
+	
 	function createNode(text, color, data) {
 		text = text ? text : "";
 		color = color ? color : '#000000';
@@ -28,29 +44,26 @@ $(function(){
 		return {'r': [x,y], 'v': [0,0], 'c': color, 'm': mass, 'data': data, 'text': text};
 	}
 	
-
 	function nodeDetail(selectedNodes) {
 		var nodemap = {};
 		var allneighbors = [];
 		var connections = {};
 		for (var i=0; i<selectedNodes.length; i++) {
 			var nodeIdx = selectedNodes[i];
-			var key = nodes[nodeIdx]['text'];
+			var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ' + nodes[nodeIdx]['text'];
 			var neighbors = [];
 			for (var j=0; j<links.length; j++) {
 				if (links[j]['a'] == nodeIdx) {
-					var neighbortext = nodes[links[j]['b']]['text'];
-					neighbors.push(neighbortext);
-					if (links[j]['b'] in allneighbors) {
-						connections[links[j]['b']] = 1;
+					neighbors.push(nodes[links[j]['b']]);
+					if ($.inArray(links[j]['b'], allneighbors) != -1) {
+						connections[links[j]['b'].toString()] = 1;
 					} else {
 						allneighbors.push(links[j]['b']);
 					}
 				} else if (links[j]['b'] == nodeIdx) {
-					var neighbortext = nodes[links[j]['a']]['text'];
-					neighbors.push(neighbortext);
-					if (links[j]['a'] in allneighbors) {
-						connections[links[j]['a']] = 1;
+					neighbors.push(nodes[links[j]['a']]);
+					if ($.inArray(links[j]['a'], allneighbors) != -1) {
+						connections[links[j]['a'].toString()] = 1;
 					} else {
 						allneighbors.push(links[j]['a']);
 					}
@@ -61,14 +74,38 @@ $(function(){
 		var html = "<h3>Selection</h3>";
 		for (var key in nodemap) {
 			var neighbors = nodemap[key];
-			html += "<h4>" + key + "</h4><ul>";
+			html += '<h4>' + key + "</h4><ul>";
 			for (var i=0; i<neighbors.length; i++){
-				html += "<li>" + neighbors[i] + "</li>";
+				html += "<li>" + neighbors[i]['text'] + "</li>";
 			}
 			html += "</ul>";
 		}
 
-		html += "<h3>Connections</h3>";
+		var connectionmap = {};
+		if (Object.keys(connections).length > 0) {
+			html += "<h3>Connections</h3>";
+			for (var key in connections) {
+				var nodeIdx = parseInt(key);
+				var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ' + nodes[nodeIdx]['text'];
+				var neighbors = [];
+				for (var j=0; j<links.length; j++) {
+					if (links[j]['a'] == nodeIdx) {
+						neighbors.push(nodes[links[j]['b']]);
+					} else if (links[j]['b'] == nodeIdx) {
+						neighbors.push(nodes[links[j]['a']]);
+					}
+				}
+				connectionmap[key] = neighbors;
+			}
+		}
+		for (var key in connectionmap) {
+			var neighbors = connectionmap[key];
+			html += "<h4>" + key + "</h4><ul>";
+			for (var i=0; i<neighbors.length; i++){
+				html += "<li>" + neighbors[i]['text'] + "</li>";
+			}
+			html += "</ul>";
+		}
 		$('#tabdata').html(html);
 	}
 	
@@ -78,16 +115,24 @@ $(function(){
 		if (engine != null) {
 			engine.destroy();
 			delete engine;
+			engine = null;
 		}
 		$('#result').hide();
 		$('#resultframe').hide();
 		$('#tabdata').empty();
+		
 		$.ajax({
 			url: '/main/search.json',
 			data: {'q': $('#search').val()},
 			type: 'get',
 			dataType: 'json',
 			success: function(data) {
+				$('#search').css('background', '');
+				if (data == null) {
+					$('#message').html("Your question <b><i>" + $('#search').val() + "</i></b> returned no results." );
+					return;
+				}
+				$('#message').html("Your question <b><i>" + $('#search').val() + "</i></b> returned the following answers from the US Code: " );
 				nodes = [];
 				links = [];
 				var positions = {};
@@ -104,7 +149,7 @@ $(function(){
 					} else {
 						sectionIdx = nodes.length;
 						nodemap[section] = sectionIdx;
-						nodes.push(createNode(section, '#00FF00', {'type': 'section', 'id': pair['section'].split('/').slice(-1)[0]}));
+						nodes.push(createNode(section, '#849099', {'type': 'section', 'id': pair['section'].split('/').slice(-1)[0]}));
 					}
 
 					if (congress in nodemap) {
@@ -112,7 +157,7 @@ $(function(){
 					} else {
 						congressIdx = nodes.length;
 						nodemap[congress] = congressIdx;
-						nodes.push(createNode('Congress ' + congress, '#FF0000', {'type': 'congress', 'id': congress}));
+						nodes.push(createNode('Congress ' + congress, '#e20028', {'type': 'congress', 'id': congress}));
 					}
 					links.push({'a': sectionIdx, 'b': congressIdx});
 				}
@@ -121,7 +166,6 @@ $(function(){
 				engine = Object.create(NEV);
 				engine.init(canvas, 60);
 				engine.loadGraph(nodes, links);
-				$('#search').css('background', '');
 			}
 		});
 	}
@@ -156,17 +200,7 @@ $(function(){
 		if (data['type'] == 'congress') {
 			$('#result').hide();
 			var id = data['id'];
-			var url = 'http://en.wikipedia.org/wiki/' + id.toString();
-			if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
-				url += 'st';
-			} else if (id.toString().substr(-1) == '2') {
-				url += 'nd';
-			} else if (id.toString().substr(-1) == '3') {
-				url += 'rd';
-			} else {
-				url += 'th';
-			}
-			url += '_United_States_Congress';
+			var url = createWikipediaUrl(id);
 			$('#resultframe').attr('src', url);
 			$('#resultframe').show();
 		} else {
