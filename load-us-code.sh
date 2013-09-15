@@ -1,5 +1,5 @@
-DEMO_HOME=/home/scott/sandbox/ml7
-mlcp.sh import -host localhost -port 8041 -username admin -password admin \
+DEMO_HOME=$(dirname $0)
+mlcp.sh import -host localhost -port 8081 -username admin -password ML1234 \
                -input_file_path $DEMO_HOME/data/xml/us/usc/ \
                -input_file_type documents \
                -document_type xml \

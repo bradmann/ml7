@@ -29,12 +29,46 @@ $(function(){
 	}
 	
 
-	function nodeDetail(name, neighbors) {
-		html = "<h3>" + name + "</h3>";
-		for (var idx in neighbors) {
-			html += "<li>" + neighbors[idx] + "</li>";
+	function nodeDetail(selectedNodes) {
+		var nodemap = {};
+		var allneighbors = [];
+		var connections = {};
+		for (var i=0; i<selectedNodes.length; i++) {
+			var nodeIdx = selectedNodes[i];
+			var key = nodes[nodeIdx]['text'];
+			var neighbors = [];
+			for (var j=0; j<links.length; j++) {
+				if (links[j]['a'] == nodeIdx) {
+					var neighbortext = nodes[links[j]['b']]['text'];
+					neighbors.push(neighbortext);
+					if (links[j]['b'] in allneighbors) {
+						connections[links[j]['b']] = 1;
+					} else {
+						allneighbors.push(links[j]['b']);
+					}
+				} else if (links[j]['b'] == nodeIdx) {
+					var neighbortext = nodes[links[j]['a']]['text'];
+					neighbors.push(neighbortext);
+					if (links[j]['a'] in allneighbors) {
+						connections[links[j]['a']] = 1;
+					} else {
+						allneighbors.push(links[j]['a']);
+					}
+				}
+			}
+			nodemap[key] = neighbors;
 		}
-		html += "</ul>";
+		var html = "<h3>Selection</h3>";
+		for (var key in nodemap) {
+			var neighbors = nodemap[key];
+			html += "<h4>" + key + "</h4><ul>";
+			for (var i=0; i<neighbors.length; i++){
+				html += "<li>" + neighbors[i] + "</li>";
+			}
+			html += "</ul>";
+		}
+
+		html += "<h3>Connections</h3>";
 		$('#tabdata').html(html);
 	}
 	
@@ -57,33 +91,33 @@ $(function(){
 				nodes = [];
 				links = [];
 				var positions = {};
-				var hmtlContent = ''; 
-				var congressUrl ='';
-				var sectionUrl ='';
-				for (var key in data) {
-					var idx = nodes.length;
-					var title = "Title " + key.split('_')[0].substr(1) + " Section " + key.split('_')[1].substr(1);
-					nodes.push(createNode(title, '#00FF00', {'type': 'section', 'id': key}));
-
-					var congress = data[key];
-					if (congress instanceof Array) {
-						for (var i=0; i < congress.length; i++) {
-							var c = congress[i];
-							if (!(c in positions)) {
-								positions[c] = nodes.length;
-								nodes.push(createNode("Congress " + c, '#FF0000', {'type': 'congress', 'id': c}));							}
-							links.push({'a': idx, 'b': positions[c]});
-						}
+				var nodemap = {};
+				for (var i=0; i < data.length; i++) {
+					var pair = data[i];
+					var section = (pair['section']).split('/').slice(-1)[0];
+					section = "Title " + section.split('_')[0].substr(1) + " Section " + section.split('_')[1].substr(1);
+					var congress = (pair['congress']).split('/').slice(-1)[0];
+					var sectionIdx = 0;
+					var congressIdx = 0;
+					if (section in nodemap) {
+						sectionIdx = nodemap[section];
 					} else {
-						var c = congress;
-						if (!(c in positions)) {
-							positions[c] = nodes.length;
-							nodes.push(createNode("Congress " + c, '#FF0000', {'type': 'congress', 'id': c}));							
-						}
-						links.push({'a': idx, 'b': positions[c]});
+						sectionIdx = nodes.length;
+						nodemap[section] = sectionIdx;
+						nodes.push(createNode(section, '#00FF00', {'type': 'section', 'id': pair['section'].split('/').slice(-1)[0]}));
 					}
+
+					if (congress in nodemap) {
+						congressIdx = nodemap[congress];
+					} else {
+						congressIdx = nodes.length;
+						nodemap[congress] = congressIdx;
+						nodes.push(createNode('Congress ' + congress, '#FF0000', {'type': 'congress', 'id': congress}));
+					}
+					links.push({'a': sectionIdx, 'b': congressIdx});
 				}
 
+				$('#logo').fadeOut();
 				engine = Object.create(NEV);
 				engine.init(canvas, 60);
 				engine.loadGraph(nodes, links);
@@ -94,6 +128,9 @@ $(function(){
 
 	$('#canvas').on('mousewheel', function(evt, delta, deltaX, deltaY) {
 		evt.preventDefault();
+		if (!engine) {
+			return;
+		}
 		if (delta < 0) {
 			engine.zoomOut(-delta);
 		} else {
@@ -101,7 +138,7 @@ $(function(){
 		}
 	});
 
-	$(document).on('nev:nodeselect', function(evt, node) {
+	$(document).on('nev:nodeselect', function(evt, node, selectedNodes) {
 		if (node == undefined) {
 			$('#result').hide();
 			$('#resultframe').hide();
@@ -146,15 +183,7 @@ $(function(){
 			$('#result').show();
 		}
 
-		var neighbors = [];
-		for (var idx in links) {
-			if (links[idx]['a'] == index) {
-				neighbors.push(nodes[links[idx]['b']]['text']);
-			} else if (links[idx]['b'] == index) {
-				neighbors.push(nodes[links[idx]['a']]['text']);
-			}
-		}
-		nodeDetail(node['text'], neighbors);
+		nodeDetail(selectedNodes);
 	});
 
 	$('#search').keypress(function (e) {
