@@ -34,9 +34,12 @@ declare option xdmp:mapping "false";
     <script src="js/compute.js"></script>
     <script src="js/main.js"></script>
     <script src="js/nev.js"></script>
+    <title>US Code Demo</title>
   </head>
   <body>
+    <div id="banner" width="100%"><div id="ml"  width="1300" height="100"><img src="public/images/marklogic.png" /> <em>7</em></div></div>
     <input type="text" placeholder="search" id="search"></input><br/>
+    <div id="message"  width="1300" height="100">Type a question and get an answer from the US Code.</div>
     <canvas id="canvas" width="1000" height="500"></canvas>
     <div id="tabdata"  width="295" height="500">&nbsp;</div>
     <div id="result">&nbsp;</div>
