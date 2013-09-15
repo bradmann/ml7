@@ -19,7 +19,23 @@ $(function(){
 	var canvas = $('#canvas')[0];
 	var nodes = [], links = [];
 	var mass = 10;
-
+	
+	function createWikipediaUrl(id) {
+		var url = 'http://en.wikipedia.org/wiki/' + id.toString();
+		if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
+			url += 'st';
+		} else if (id.toString().substr(-1) == '2') {
+			url += 'nd';
+		} else if (id.toString().substr(-1) == '3') {
+			url += 'rd';
+		} else {
+			url += 'th';
+		}
+		url += '_United_States_Congress';
+		return url;
+		
+	}
+	
 	function createNode(text, color, data) {
 		text = text ? text : "";
 		color = color ? color : '#000000';
@@ -30,7 +46,7 @@ $(function(){
 	
 
 	function nodeDetail(name, neighbors) {
-		html = "<h3>" + name + "</h3>";
+		html = "<h3>" + name + "</h3><ul>";
 		for (var idx in neighbors) {
 			html += "<li>" + neighbors[idx] + "</li>";
 		}
@@ -48,6 +64,9 @@ $(function(){
 		$('#result').hide();
 		$('#resultframe').hide();
 		$('#tabdata').empty();
+
+		$('#message').html("Your question <b><i>" + $('#search').val() + "</i></b> returned the following answers from the US Code: " );
+		
 		$.ajax({
 			url: '/main/search.json',
 			data: {'q': $('#search').val()},
@@ -60,25 +79,37 @@ $(function(){
 				var hmtlContent = ''; 
 				var congressUrl ='';
 				var sectionUrl ='';
+				
+				console.log("data: ");
+				console.log(data);
+				
 				for (var key in data) {
 					var idx = nodes.length;
 					var title = "Title " + key.split('_')[0].substr(1) + " Section " + key.split('_')[1].substr(1);
-					nodes.push(createNode(title, '#00FF00', {'type': 'section', 'id': key}));
+					nodes.push(createNode(title, '#849099', {'type': 'section', 'id': key}));
+					console.log("key: ");
+					console.log(key);
 
 					var congress = data[key];
+					console.log("congress: ");
+					console.log(congress);
 					if (congress instanceof Array) {
 						for (var i=0; i < congress.length; i++) {
 							var c = congress[i];
 							if (!(c in positions)) {
 								positions[c] = nodes.length;
-								nodes.push(createNode("Congress " + c, '#FF0000', {'type': 'congress', 'id': c}));							}
-							links.push({'a': idx, 'b': positions[c]});
+								nodes.push(createNode("Congress " + c, '#e20028', {'type': 'congress', 'id': c}));							}
+							links.push({'a': idx, 'b': positions[c]});	
+							console.log("c congress: ");
+							console.log(c);					
 						}
 					} else {
 						var c = congress;
 						if (!(c in positions)) {
 							positions[c] = nodes.length;
-							nodes.push(createNode("Congress " + c, '#FF0000', {'type': 'congress', 'id': c}));							
+							nodes.push(createNode("Congress " + c, '#e20028', {'type': 'congress', 'id': c}));		
+							console.log("c: ");
+							console.log(c);					
 						}
 						links.push({'a': idx, 'b': positions[c]});
 					}
@@ -119,17 +150,7 @@ $(function(){
 		if (data['type'] == 'congress') {
 			$('#result').hide();
 			var id = data['id'];
-			var url = 'http://en.wikipedia.org/wiki/' + id.toString();
-			if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
-				url += 'st';
-			} else if (id.toString().substr(-1) == '2') {
-				url += 'nd';
-			} else if (id.toString().substr(-1) == '3') {
-				url += 'rd';
-			} else {
-				url += 'th';
-			}
-			url += '_United_States_Congress';
+			var url = createWikipediaUrl(id);
 			$('#resultframe').attr('src', url);
 			$('#resultframe').show();
 		} else {
@@ -154,6 +175,7 @@ $(function(){
 				neighbors.push(nodes[links[idx]['a']]['text']);
 			}
 		}
+
 		nodeDetail(node['text'], neighbors);
 	});
 
