@@ -19,7 +19,23 @@ $(function(){
 	var canvas = $('#canvas')[0];
 	var nodes = [], links = [];
 	var mass = 10;
-
+	
+	function createWikipediaUrl(id) {
+		var url = 'http://en.wikipedia.org/wiki/' + id.toString();
+		if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
+			url += 'st';
+		} else if (id.toString().substr(-1) == '2') {
+			url += 'nd';
+		} else if (id.toString().substr(-1) == '3') {
+			url += 'rd';
+		} else {
+			url += 'th';
+		}
+		url += '_United_States_Congress';
+		return url;
+		
+	}
+	
 	function createNode(text, color, data) {
 		text = text ? text : "";
 		color = color ? color : '#000000';
@@ -28,13 +44,68 @@ $(function(){
 		return {'r': [x,y], 'v': [0,0], 'c': color, 'm': mass, 'data': data, 'text': text};
 	}
 	
-
-	function nodeDetail(name, neighbors) {
-		html = "<h3>" + name + "</h3>";
-		for (var idx in neighbors) {
-			html += "<li>" + neighbors[idx] + "</li>";
+	function nodeDetail(selectedNodes) {
+		var nodemap = {};
+		var allneighbors = [];
+		var connections = {};
+		for (var i=0; i<selectedNodes.length; i++) {
+			var nodeIdx = selectedNodes[i];
+			var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ' + nodes[nodeIdx]['text'];
+			var neighbors = [];
+			for (var j=0; j<links.length; j++) {
+				if (links[j]['a'] == nodeIdx) {
+					neighbors.push(nodes[links[j]['b']]);
+					if ($.inArray(links[j]['b'], allneighbors) != -1) {
+						connections[links[j]['b'].toString()] = 1;
+					} else {
+						allneighbors.push(links[j]['b']);
+					}
+				} else if (links[j]['b'] == nodeIdx) {
+					neighbors.push(nodes[links[j]['a']]);
+					if ($.inArray(links[j]['a'], allneighbors) != -1) {
+						connections[links[j]['a'].toString()] = 1;
+					} else {
+						allneighbors.push(links[j]['a']);
+					}
+				}
+			}
+			nodemap[key] = neighbors;
 		}
-		html += "</ul>";
+		var html = "<h3>Selection</h3>";
+		for (var key in nodemap) {
+			var neighbors = nodemap[key];
+			html += '<h4>' + key + "</h4><ul>";
+			for (var i=0; i<neighbors.length; i++){
+				html += "<li>" + neighbors[i]['text'] + "</li>";
+			}
+			html += "</ul>";
+		}
+
+		var connectionmap = {};
+		if (Object.keys(connections).length > 0) {
+			html += "<h3>Connections</h3>";
+			for (var key in connections) {
+				var nodeIdx = parseInt(key);
+				var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ' + nodes[nodeIdx]['text'];
+				var neighbors = [];
+				for (var j=0; j<links.length; j++) {
+					if (links[j]['a'] == nodeIdx) {
+						neighbors.push(nodes[links[j]['b']]);
+					} else if (links[j]['b'] == nodeIdx) {
+						neighbors.push(nodes[links[j]['a']]);
+					}
+				}
+				connectionmap[key] = neighbors;
+			}
+		}
+		for (var key in connectionmap) {
+			var neighbors = connectionmap[key];
+			html += "<h4>" + key + "</h4><ul>";
+			for (var i=0; i<neighbors.length; i++){
+				html += "<li>" + neighbors[i]['text'] + "</li>";
+			}
+			html += "</ul>";
+		}
 		$('#tabdata').html(html);
 	}
 	
@@ -44,56 +115,66 @@ $(function(){
 		if (engine != null) {
 			engine.destroy();
 			delete engine;
+			engine = null;
 		}
 		$('#result').hide();
 		$('#resultframe').hide();
 		$('#tabdata').empty();
+		
 		$.ajax({
 			url: '/main/search.json',
 			data: {'q': $('#search').val()},
 			type: 'get',
 			dataType: 'json',
 			success: function(data) {
+				$('#search').css('background', '');
+				if (data == null) {
+					$('#message').html("Your question <b><i>" + $('#search').val() + "</i></b> returned no results." );
+					return;
+				}
+				$('#message').html("Your question <b><i>" + $('#search').val() + "</i></b> returned the following answers from the US Code: " );
 				nodes = [];
 				links = [];
 				var positions = {};
-				var hmtlContent = ''; 
-				var congressUrl ='';
-				var sectionUrl ='';
-				for (var key in data) {
-					var idx = nodes.length;
-					var title = "Title " + key.split('_')[0].substr(1) + " Section " + key.split('_')[1].substr(1);
-					nodes.push(createNode(title, '#00FF00', {'type': 'section', 'id': key}));
-
-					var congress = data[key];
-					if (congress instanceof Array) {
-						for (var i=0; i < congress.length; i++) {
-							var c = congress[i];
-							if (!(c in positions)) {
-								positions[c] = nodes.length;
-								nodes.push(createNode("Congress " + c, '#FF0000', {'type': 'congress', 'id': c}));							}
-							links.push({'a': idx, 'b': positions[c]});
-						}
+				var nodemap = {};
+				for (var i=0; i < data.length; i++) {
+					var pair = data[i];
+					var section = (pair['section']).split('/').slice(-1)[0];
+					section = "Title " + section.split('_')[0].substr(1) + " Section " + section.split('_')[1].substr(1);
+					var congress = (pair['congress']).split('/').slice(-1)[0];
+					var sectionIdx = 0;
+					var congressIdx = 0;
+					if (section in nodemap) {
+						sectionIdx = nodemap[section];
 					} else {
-						var c = congress;
-						if (!(c in positions)) {
-							positions[c] = nodes.length;
-							nodes.push(createNode("Congress " + c, '#FF0000', {'type': 'congress', 'id': c}));							
-						}
-						links.push({'a': idx, 'b': positions[c]});
+						sectionIdx = nodes.length;
+						nodemap[section] = sectionIdx;
+						nodes.push(createNode(section, '#849099', {'type': 'section', 'id': pair['section'].split('/').slice(-1)[0]}));
 					}
+
+					if (congress in nodemap) {
+						congressIdx = nodemap[congress];
+					} else {
+						congressIdx = nodes.length;
+						nodemap[congress] = congressIdx;
+						nodes.push(createNode('Congress ' + congress, '#e20028', {'type': 'congress', 'id': congress}));
+					}
+					links.push({'a': sectionIdx, 'b': congressIdx});
 				}
 
+				$('#logo').fadeOut();
 				engine = Object.create(NEV);
 				engine.init(canvas, 60);
 				engine.loadGraph(nodes, links);
-				$('#search').css('background', '');
 			}
 		});
 	}
 
 	$('#canvas').on('mousewheel', function(evt, delta, deltaX, deltaY) {
 		evt.preventDefault();
+		if (!engine) {
+			return;
+		}
 		if (delta < 0) {
 			engine.zoomOut(-delta);
 		} else {
@@ -101,7 +182,7 @@ $(function(){
 		}
 	});
 
-	$(document).on('nev:nodeselect', function(evt, node) {
+	$(document).on('nev:nodeselect', function(evt, node, selectedNodes) {
 		if (node == undefined) {
 			$('#result').hide();
 			$('#resultframe').hide();
@@ -119,17 +200,7 @@ $(function(){
 		if (data['type'] == 'congress') {
 			$('#result').hide();
 			var id = data['id'];
-			var url = 'http://en.wikipedia.org/wiki/' + id.toString();
-			if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
-				url += 'st';
-			} else if (id.toString().substr(-1) == '2') {
-				url += 'nd';
-			} else if (id.toString().substr(-1) == '3') {
-				url += 'rd';
-			} else {
-				url += 'th';
-			}
-			url += '_United_States_Congress';
+			var url = createWikipediaUrl(id);
 			$('#resultframe').attr('src', url);
 			$('#resultframe').show();
 		} else {
@@ -146,15 +217,7 @@ $(function(){
 			$('#result').show();
 		}
 
-		var neighbors = [];
-		for (var idx in links) {
-			if (links[idx]['a'] == index) {
-				neighbors.push(nodes[links[idx]['b']]['text']);
-			} else if (links[idx]['b'] == index) {
-				neighbors.push(nodes[links[idx]['a']]['text']);
-			}
-		}
-		nodeDetail(node['text'], neighbors);
+		nodeDetail(selectedNodes);
 	});
 
 	$('#search').keypress(function (e) {

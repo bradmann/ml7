@@ -34,10 +34,17 @@ declare option xdmp:mapping "false";
     <script src="js/compute.js"></script>
     <script src="js/main.js"></script>
     <script src="js/nev.js"></script>
+    <title>US Code Demo</title> 
+    <link rel='shortcut icon' href='public/images/favicon.ico' />
   </head>
   <body>
+    <div id="banner" width="100%"><div id="ml"  width="1300" height="100"><img src="public/images/marklogic.png" /> <em>7</em></div></div>
     <input type="text" placeholder="search" id="search"></input><br/>
-    <canvas id="canvas" width="1000" height="500"></canvas>
+    <div id="message"  width="1300" height="100">Type a question and get an answer from the US Code.</div>
+    <div id="container">
+      <img id="logo" src="/images/ml_logo.png"/>
+      <canvas id="canvas" width="1000" height="500"></canvas>
+    </div>
     <div id="tabdata"  width="295" height="500">&nbsp;</div>
     <div id="result">&nbsp;</div>
     <iframe id="resultframe">&nbsp;</iframe>

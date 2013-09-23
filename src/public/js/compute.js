@@ -1,5 +1,6 @@
 var nodes = [], links = [], quadtree, width, height, timer;
-var theta = .5, coulombConstant = 1000, springConstant = 100, damping = .7, timeStep = 1, k = 0, interval = (1/30), temperature = 1, maxVel = 100, selectedIdx = -1, steadyState = .1, lowEntropy = 0;
+var theta = .5, coulombConstant = 1000, springConstant = 100, damping = .7, timeStep = 1, k = 0, interval = (1/30), temperature = 1,
+maxVel = 100, fixedIdx = -1, steadyState = .1, lowEntropy = 0, selectedNodes = [];
 
 function repel(node1, node2) {
 	var x = node2['r'][0] - node1['r'][0];
@@ -164,6 +165,7 @@ function compute_mass(n) {
 	}
 }
 
+// Add up any number of vectors
 function vector_add() {
 	var vectorLength = arguments[0].length;
 	var out = new Array(vectorLength);
@@ -177,12 +179,14 @@ function vector_add() {
 	return out;
 }
 
+// Straight-line distance between 2 points
 function distance(n1, n2) {
 	var xDist = n1[0] - n2[0];
 	var yDist = n1[1] - n2[1];
 	return Math.sqrt(xDist*xDist + yDist*yDist);
 }
 
+// Used to compute the force of each node in a quadtree
 function tree_force(node, root) {
 	if (root['val']) {
 		var force = repel(node, root['val']);
@@ -220,6 +224,7 @@ function start() {
 	timer = setTimeout(function(){tick()}, 0);
 }
 
+// Naive force computation. O(n^2)
 function compute_force2() {
 	//Loop through the nodes and compute the force on each node
 	for (var i=0, l=nodes.length; i < l; i++) {
@@ -246,6 +251,8 @@ function compute_force2() {
 	}
 }
 
+// This is the good shit. Optimal force computation using barnes-hut quadtree
+// optimization. O(nlogn)
 function compute_force() {
 	//Build the quadtree
 	quadtree_build();
@@ -385,34 +392,38 @@ function mousedown(params) {
 	if (idx === null) {return;}
 	var node = nodes[idx];
 	node['fixed'] = true;
-	selectedIdx = idx;
+	fixedIdx = idx;
 }
 
 function mouseup(params) {
-	if (selectedIdx != -1) {
-		delete nodes[selectedIdx]['fixed'];
-		selectedIdx = -1;
+	if (fixedIdx != -1) {
+		delete nodes[fixedIdx]['fixed'];
+		fixedIdx = -1;
 	}
 }
 
 function click(params) {
+	var shiftKey = params['shiftKey'];
 	var coords = params['coords'];
 	var idx = getNodeIdxAtCoords(coords);
-	for (var index in nodes) {
-		if (nodes[index]['selected'] == true) {
-			nodes[index]['selected'] = false;
+	if (!shiftKey) {
+		for (var i=0; i<selectedNodes.length; i++) {
+			nodes[selectedNodes[i]]['selected'] = false;
 		}
+		selectedNodes = [];
 	}
 	if (idx === null) {
 		for (var index in links) {
 			links[index]['selected'] = false;
 		}
-		postMessage({"cmd": "nodeSelect", "params": {"node": null}});
+		postMessage({"cmd": "nodeSelect", "params": {"node": null, "selectedNodes": selectedNodes}});
 		postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
-		if (selectedIdx != -1) {
-			nodes[selectedIdx]['selected'] = false;
+		if (selectedNodes.length != 0) {
+			for (var i=0; i<selectedNodes.length; i++) {
+				nodes[selectedNodes[i]]['selected'] = false;
+			}
 		}
-		selectedIdx = -1;
+		selectedNodes = [];
 		return;
 	}
 	var node = nodes[idx];
@@ -421,20 +432,20 @@ function click(params) {
 		var link = links[index];
 		if (link['a'] == idx || link['b'] == idx) {
 			link['selected'] = true;
-		} else {
+		} else if (!shiftKey) {
 			link['selected'] = false;
 		}
 	}
-	selectedIdx = idx;
-	postMessage({"cmd": "nodeSelect", "params": {"node": node}});
+	selectedNodes.push(idx);
+	postMessage({"cmd": "nodeSelect", "params": {"node": node, "selectedNodes": selectedNodes}});
 	postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
 }
 
 function drag(params) {
-	if (selectedIdx != -1) {
+	if (fixedIdx != -1) {
 		var x = params['coords'][0];
 		var y = params['coords'][1];
-		var node = nodes[selectedIdx];
+		var node = nodes[fixedIdx];
 		node['r'][0] = x;
 		node['r'][1] = y;
 		if (!timer) {

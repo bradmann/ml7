@@ -1,7 +1,7 @@
 (function(){
 	var VisEngine = {
 		timer: null, engine: null, canvas: null, ctx: null, interval: null, nodes: null, links: null, width: 1000, height: 500, scaleX: 1, scaleY: -1, mousedown: false,
-		images: {},
+		images: {}, clickTimer: null, dragFlag: false,
 		init: function(engine, canvas, fps){
 			var self = this;
 			this.engine = engine;
@@ -16,7 +16,10 @@
 			this.canvas.addEventListener('mousedown', function(evt) {
 				if (evt.button !== 0) {return;}
 				self.mousedown = true;
+				self.clickTimer = new Date();
 				engine.postMessage({"cmd": "mousedown", "params": {"coords": self.getWorldCoords(evt)}});
+				evt.preventDefault();
+				return false;
 			}, false);
 			this.canvas.addEventListener('mouseup', function(evt) {
 				if (evt.button !== 0 || !self.mousedown) {return;}
@@ -25,13 +28,19 @@
 			}, false);
 			this.canvas.addEventListener('mousemove', function(evt) {
 				if (!self.mousedown) {return;}
+				self.dragFlag = true;
 				var bounds = this.getBoundingClientRect();
 				var x = evt.clientX - bounds.left - 1;
 				var y = evt.clientY - bounds.top - 1;
 				engine.postMessage({"cmd": "drag", "params": {"coords": self.getWorldCoords(evt)}});
 			}, false);
 			this.canvas.addEventListener('click', function(evt) {
-				engine.postMessage({"cmd": "click", "params": {"coords": self.getWorldCoords(evt)}});
+				if ((new Date()) - self.clickTimer > 500 || self.dragFlag) {
+					self.clickTimer = null;
+					self.dragFlag = false;
+					return false;
+				}
+				engine.postMessage({"cmd": "click", "params": {"coords": self.getWorldCoords(evt), "shiftKey": evt.shiftKey}});
 			}, false);
 			this.canvas.addEventListener('contextmenu', function(evt) {
 				evt.preventDefault();
@@ -177,7 +186,8 @@
 		},
 		nodeSelect: function(params) {
 			var node = params['node'];
-			$(document).trigger('nev:nodeselect', node);
+			var selectedNodes = params['selectedNodes'];
+			$(document).trigger('nev:nodeselect', [node, selectedNodes]);
 		},
 		destroy: function() {
 			this.visEngine.clear();

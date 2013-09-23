@@ -5,10 +5,10 @@ import module namespace sem   = "http://marklogic.com/semantics"             at 
 import module namespace t-lib = "http://marklogic.com/semantics/triples-lib" at "/lib/triples-lib.xqy";
 
 declare namespace house = "http://xml.house.gov/schemas/uslm/1.0";
-
-declare variable $law-doc as element() external;
+let $_ := xdmp:set-request-time-limit(3600)
 
 let $triples :=
+  for $law-doc in fn:collection("us-code")/element()
   let $title := $law-doc//house:title 
   let $house-ns := fn:namespace-uri($title)
   let $subject := fn:concat($house-ns, "/", h-lib:identifier($title/@identifier))

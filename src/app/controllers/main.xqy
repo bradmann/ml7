@@ -42,39 +42,7 @@ declare function c:main() as item()*
 declare function c:search() as item()*
 {
   let $q := req:get("q", (), "type=xs:string")
-  let $sections := cts:element-attribute-values(xs:QName("house:section"), xs:QName("identifier"), (), (), cts:query(search:parse($q)))
-  let $resmap := map:map()
-  let $build-map :=
-    for $s in $sections
-    let $group := fn:tokenize($s, "/")
-    let $title := $group[4]
-    let $section := $group[5]
-    let $ts := fn:replace(fn:replace(fn:replace($title || "_" || $section, "&#x2013;", "-"), " ", "_"), ",", "")
-    let $sq :=
-      'PREFIX house: <http://xml.house.gov/schemas/uslm/1.0/>
-      PREFIX dcterms: <http://purl.org/dc/elements/1.1/>
-      PREFIX dc: <http://purl.org/dc/terms/>
-      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-      PREFIX congress: <http://congress.gov/>
-
-      CONSTRUCT { ?congress house:amends house:t12_s1717 }
-      WHERE
-      { 
-        SELECT DISTINCT ?congress 
-        WHERE 
-        {
-          ?amendment house:amends house:' || $ts || ' .
-          ?amendment dc:creator ?congress .
-        }
-      }'
-    let $congresses := for $triple in sem:sparql($sq) return fn:tokenize(sem:triple-subject($triple), "/")[fn:last()]
-    return map:put($resmap, $ts, $congresses)
-  return (
-    xdmp:to-json($resmap),
-    ch:use-layout(()),
-    ch:use-view(())
-  )
+  return xdmp:to-json(xdmp:invoke("/util/sections-congress.xqy", (xs:QName("q"), $q)))
 };
 
 declare function c:content() as item()*

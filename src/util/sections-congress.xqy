@@ -56,7 +56,7 @@ sem:sparql("
   SELECT DISTINCT ?section ?congress
   WHERE {
     <query> <returns> ?section .
-    ?amendment house:amends <http://xml.house.gov/schemas/uslm/1.0/t16_s1445a> .
+    ?amendment house:amends ?section .
     ?amendment dcterms:creator ?congress
  } 
 ");

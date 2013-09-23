@@ -17,6 +17,22 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+  	font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* Always use a font stack, even with custom web fonts! */
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+ul {
+	margin: .7em; 
+}
+
+ul li {
+	font: normal .9em Helvetica, Arial, sans-serif;
+    line-height:1;
 }
 
 body {
@@ -91,15 +107,33 @@ hr {
     padding:0;
 }
 
+
+
+em {  
+	font-size:150%;
+	color:white;
+}
+
 input, select {
     vertical-align:middle;
 }
 
-#canvas {width:1000px; height:500px; border:1px solid black; margin-top:10px}
-#search {font-size: 18pt; width: 1300px;}
+#container {width:1000px; height:500px; display:inline-block; position:relative; margin-top: 10px;}
+#logo{width:500px; position: absolute; left: 250px; top: 155px; opacity: 0.6; filter:alpha(opacity=60);}
+#banner {width: 100%; tfloat:right; margin: 0; background-color:#cdd6dd; vertical-align: bottom;  }
+#ml {width: 1300px; text-align: right; margin: 0 auto; background-color:#cdd6dd; font-size:150%; font-weight:bold; vertical-align: bottom; }
+#canvas {width:1000px; height:500px; border:1px solid black;}
+#canvas:active, #canvas:focus {cursor: default;}
+#search {font-size: 18pt; width: 1300px; margin-bottom:10px; margin-top:10px;}
 #result {width: 1300px; text-align: left; margin: 0 auto;}
 #resultframe {width: 1300px; height: 500px;}
-#tabdata  {display: inline-block; position: relative; width:295px; height:500px; border:1px solid black; margin-top:10px; overflow:scroll; text-align: left;}
+#message {width: 1300px; text-align: left; margin: 0 auto;}
+#tabdata  {display: inline-block; position: relative; width:295px; height:500px; border:1px solid black; overflow:scroll; text-align: left;}
+
+#tabdata h3 {background-color: #cdd6dd; padding: 3px;}
+#tabdata h4 {padding: 3px;}
+#tabdata ul {margin-top: 0;}
 
 section p {text-indent: 30px;}
 span.highlight {background-color: #FFFF00;}
+
