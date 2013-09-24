@@ -1,7 +1,7 @@
 %awsSecretAccessKeys = (
   personal => {
-    id => 'enter aws access id',
-    key => 'enter aws private key',
+    id => 'AKIAJCATDGYSFC2CEYIQ',
+    key => 'hG7GhZj6qL8hU0oZUWWJKRFKZRFOTymTHYT8yLzP',
   } 
 );
 
