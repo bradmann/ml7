@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <child0>
+    <type>house</type>
+    <name>House Committee on Agriculture</name>
+    <url>http://agriculture.house.gov/</url>
+    <thomas_id>HSAG</thomas_id>
+    <house_committee_id>AG</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Conservation, Energy, and Forestry</name>
+        <thomas_id>15</thomas_id>
+        <address>1301 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2171</phone>
+      </child0>
+      <child1>
+        <name>Department Operations, Oversight, and Nutrition</name>
+        <thomas_id>22</thomas_id>
+        <address>1301 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2171</phone>
+      </child1>
+      <child2>
+        <name>General Farm Commodities and Risk Management</name>
+        <thomas_id>16</thomas_id>
+        <address>1301 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2171</phone>
+      </child2>
+      <child3>
+        <name>Nutrition and Horticulture</name>
+        <thomas_id>03</thomas_id>
+        <address>1301 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2171</phone>
+      </child3>
+      <child4>
+        <name>Livestock, Rural Development, and Credit</name>
+        <thomas_id>29</thomas_id>
+        <address>1301 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2171</phone>
+      </child4>
+      <child5>
+        <name>Horticulture, Research, Biotechnology, and Foreign Agriculture</name>
+        <thomas_id>14</thomas_id>
+        <address>1301 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2171</phone>
+      </child5>
+    </subcommittees>
+    <address>1301 LHOB; Washington, DC 20515</address>
+    <phone>(202) 225-2171</phone>
+    <rss_url>http://agriculture.house.gov/rss.xml</rss_url>
+  </child0>
+  <child1>
+    <type>house</type>
+    <name>House Committee on Appropriations</name>
+    <url>http://appropriations.house.gov/</url>
+    <thomas_id>HSAP</thomas_id>
+    <house_committee_id>AP</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Agriculture, Rural Development, Food and Drug Administration, and Related Agencies</name>
+        <thomas_id>01</thomas_id>
+        <address>2362A RHOB; Washington, DC 20515-6016</address>
+        <phone>(202) 225-2638</phone>
+      </child0>
+      <child1>
+        <name>Commerce, Justice, Science, and Related Agencies</name>
+        <thomas_id>19</thomas_id>
+        <address>H309 CAPITOL; Washington, DC 20515</address>
+        <phone>(202) 225-3351</phone>
+      </child1>
+      <child2>
+        <name>Defense</name>
+        <thomas_id>02</thomas_id>
+        <address>H405 CAPITOL; Washington, DC 20515-6018</address>
+        <phone>(202) 225-2847</phone>
+      </child2>
+      <child3>
+        <name>Energy and Water Development, and Related Agencies</name>
+        <thomas_id>10</thomas_id>
+        <address>2362B RHOB; Washington, DC 20515-6020</address>
+        <phone>(202) 225-3421</phone>
+      </child3>
+      <child4>
+        <name>Financial Services and General Government</name>
+        <thomas_id>23</thomas_id>
+        <address>B300 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-7245</phone>
+      </child4>
+      <child5>
+        <name>Homeland Security</name>
+        <thomas_id>15</thomas_id>
+        <address>B307 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5834</phone>
+      </child5>
+      <child6>
+        <name>Interior, Environment, and Related Agencies</name>
+        <thomas_id>06</thomas_id>
+        <address>B308 RHOB; Washington, DC 20515-6023</address>
+        <phone>(202) 225-3081</phone>
+      </child6>
+      <child7>
+        <name>Labor, Health and Human Services, Education, and Related Agencies</name>
+        <thomas_id>07</thomas_id>
+        <address>2358B RHOB; Washington, DC 20515-6024</address>
+        <phone>(202) 225-3508</phone>
+      </child7>
+      <child8>
+        <name>Legislative Branch</name>
+        <thomas_id>24</thomas_id>
+        <address>HT2 CAPITOL; Washington, DC 20515</address>
+        <phone>(202) 226-7252</phone>
+      </child8>
+      <child9>
+        <name>Military Construction, Veterans Affairs, and Related Agencies</name>
+        <thomas_id>18</thomas_id>
+        <address>HVC227 CAPITOL; Washington, DC 20515</address>
+        <phone>(202) 225-3047</phone>
+      </child9>
+      <child10>
+        <name>State, Foreign Operations, and Related Programs</name>
+        <thomas_id>04</thomas_id>
+        <address>HT2 CAPITOL; Washington, DC 20515-6021</address>
+        <phone>(202) 225-2041</phone>
+      </child10>
+      <child11>
+        <name>Transportation, and Housing and Urban Development, and Related Agencies</name>
+        <thomas_id>20</thomas_id>
+        <address>2358A RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2141</phone>
+      </child11>
+    </subcommittees>
+    <address>H305 CAPITOL; Washington, DC 20515-6015</address>
+    <phone>(202) 225-2771</phone>
+    <rss_url>http://appropriations.house.gov/news/rss.aspx</rss_url>
+    <minority_rss_url>http://democrats.appropriations.house.gov/index.php?option=com_bca-rss-syndicator&amp;feed_id=1&amp;Itemid=15</minority_rss_url>
+  </child1>
+  <child2>
+    <type>house</type>
+    <name>House Committee on Armed Services</name>
+    <url>http://armedservices.house.gov/</url>
+    <thomas_id>HSAS</thomas_id>
+    <house_committee_id>AS</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Tactical Air and Land Forces</name>
+        <thomas_id>25</thomas_id>
+        <address>2340 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-4440</phone>
+      </child0>
+      <child1>
+        <name>Military Personnel</name>
+        <thomas_id>02</thomas_id>
+        <address>2340 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-7560</phone>
+      </child1>
+      <child2>
+        <name>Oversight and Investigations</name>
+        <thomas_id>06</thomas_id>
+        <address>2117 RHOB; Washington, DC 20515</address>
+        <phone>(202) 226-5048</phone>
+      </child2>
+      <child3>
+        <name>Readiness</name>
+        <thomas_id>03</thomas_id>
+        <address>2340 RHOB; Washington, DC 20515-6040</address>
+        <phone>(202) 226-8979</phone>
+      </child3>
+      <child4>
+        <name>Seapower and Projection Forces</name>
+        <thomas_id>28</thomas_id>
+        <address>2340 RHOB; Washington, DC 20515</address>
+        <phone>(202) 226-2211</phone>
+      </child4>
+      <child5>
+        <name>Strategic Forces</name>
+        <thomas_id>29</thomas_id>
+        <address>2216 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-1967</phone>
+      </child5>
+      <child6>
+        <name>Intelligence, Emerging Threats and Capabilities</name>
+        <thomas_id>26</thomas_id>
+        <address>2340 RHOB; Washington, DC 20515</address>
+        <phone>(202) 226-2843</phone>
+      </child6>
+    </subcommittees>
+    <address>2120 RHOB; Washington, DC 20515-6035</address>
+    <phone>(202) 225-4151</phone>
+    <rss_url>http://armedservices.house.gov/index.cfm/rss/feed</rss_url>
+    <minority_rss_url>http://democrats.armedservices.house.gov/index.cfm/rss/feed</minority_rss_url>
+  </child2>
+  <child3>
+    <type>house</type>
+    <name>House Committee on Financial Services</name>
+    <url>http://financialservices.house.gov/</url>
+    <thomas_id>HSBA</thomas_id>
+    <house_committee_id>BA</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Capital Markets and Government Sponsored Enterprises</name>
+        <thomas_id>16</thomas_id>
+        <address>2129 RHOB; Washington, DC 20515-6053</address>
+        <phone>(202) 225-7502</phone>
+      </child0>
+      <child1>
+        <name>Domestic Monetary Policy and Technology</name>
+        <thomas_id>19</thomas_id>
+        <address>2129 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-7502</phone>
+      </child1>
+      <child2>
+        <name>Financial Institutions and Consumer Credit</name>
+        <thomas_id>15</thomas_id>
+        <address>2129 RHOB; Washington, DC 20515-6051</address>
+        <phone>(202) 225-7502</phone>
+      </child2>
+      <child3>
+        <name>Housing and Insurance</name>
+        <thomas_id>04</thomas_id>
+        <address>2129 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-7502</phone>
+      </child3>
+      <child4>
+        <name>Monetary Policy and Trade</name>
+        <thomas_id>20</thomas_id>
+        <address>2129 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-7502</phone>
+      </child4>
+      <child5>
+        <name>Oversight and Investigations</name>
+        <thomas_id>09</thomas_id>
+        <address>2129 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-7502</phone>
+      </child5>
+    </subcommittees>
+    <address>2129 RHOB; Washington, DC 20515-6050</address>
+    <phone>(202) 225-7502</phone>
+    <rss_url>http://financialservices.house.gov/news/rss.aspx</rss_url>
+    <minority_rss_url>http://democrats.financialservices.house.gov/Rss.aspx?GroupID=1</minority_rss_url>
+  </child3>
+  <child4>
+    <type>house</type>
+    <name>House Committee on the Budget</name>
+    <url>http://budget.house.gov/</url>
+    <thomas_id>HSBU</thomas_id>
+    <house_committee_id>BU</house_committee_id>
+    <address>207 CHOB; Washington, DC 20515-6065</address>
+    <phone>(202) 226-7270</phone>
+    <rss_url>http://budget.house.gov/news/rss.aspx</rss_url>
+    <minority_rss_url>http://feeds.feedburner.com/BudgetCommittee</minority_rss_url>
+  </child4>
+  <child5>
+    <type>house</type>
+    <name>House Committee on Education and the Workforce</name>
+    <url>http://edlabor.house.gov/</url>
+    <thomas_id>HSED</thomas_id>
+    <house_committee_id>ED</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Early Childhood, Elementary, and Secondary Education</name>
+        <thomas_id>14</thomas_id>
+        <address>2181 RHOB; Washington, DC 20515-9998</address>
+        <phone>(202) 225-4527</phone>
+      </child0>
+      <child1>
+        <name>Health, Employment, Labor, and Pensions</name>
+        <thomas_id>02</thomas_id>
+        <address>2181 RHOB; Washington, DC 20515-6104</address>
+        <phone>(202) 225-4527</phone>
+      </child1>
+      <child2>
+        <name>Higher Education and Workforce Training</name>
+        <thomas_id>13</thomas_id>
+        <address>2181 RHOB; Washington, DC 20515-9998</address>
+        <phone>(202) 225-4527</phone>
+      </child2>
+      <child3>
+        <name>Workforce Protections</name>
+        <thomas_id>10</thomas_id>
+        <address>2181 RHOB; Washington, DC 20515-6103</address>
+        <phone>(202) 225-4527</phone>
+      </child3>
+    </subcommittees>
+    <address>2181 RHOB; Washington, DC 20515-6100</address>
+    <phone>(202) 225-4527</phone>
+    <rss_url>http://edworkforce.house.gov/news/rss.aspx</rss_url>
+    <minority_rss_url>http://democrats.edworkforce.house.gov/rss.xml</minority_rss_url>
+  </child5>
+  <child6>
+    <type>house</type>
+    <name>House Committee on Foreign Affairs</name>
+    <url>http://foreignaffairs.house.gov/</url>
+    <thomas_id>HSFA</thomas_id>
+    <house_committee_id>FA</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Africa, Global Health, Global Human Rights, and International Organizations</name>
+        <thomas_id>16</thomas_id>
+        <address>H2-259A FHOB; Washington, DC 20515</address>
+        <phone>(202) 226-7812</phone>
+      </child0>
+      <child1>
+        <name>Asia and the Pacific</name>
+        <thomas_id>05</thomas_id>
+        <address>H2-255 FHOB; Washington, DC 20515</address>
+        <phone>(202) 226-7825</phone>
+      </child1>
+      <child2>
+        <name>Europe, Eurasia, and Emerging Threats</name>
+        <thomas_id>14</thomas_id>
+        <address>H2-257 FHOB; Washington, DC 20515</address>
+        <phone>(202) 226-6434</phone>
+      </child2>
+      <child3>
+        <name>Oversight and Investigations</name>
+        <thomas_id>17</thomas_id>
+        <address>2401A RHOB; Washington, DC 20515</address>
+        <phone>(202) 226-5045</phone>
+      </child3>
+      <child4>
+        <name>Terrorism, Nonproliferation, and Trade</name>
+        <thomas_id>18</thomas_id>
+        <address>H2-340 FHOB; Washington, DC 20515</address>
+        <phone>(202) 226-1500</phone>
+      </child4>
+      <child5>
+        <name>The Middle East and North Africa</name>
+        <thomas_id>13</thomas_id>
+        <address>2401A RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-3345</phone>
+      </child5>
+      <child6>
+        <name>The Western Hemisphere</name>
+        <thomas_id>07</thomas_id>
+        <address>H2-256 FHOB; Washington, DC 20515</address>
+        <phone>(202) 226-9980</phone>
+      </child6>
+    </subcommittees>
+    <address>2170 RHOB; Washington, DC 20515-6128</address>
+    <phone>(202) 225-5021</phone>
+    <rss_url>http://foreignaffairs.house.gov/rss.xml</rss_url>
+  </child6>
+  <child7>
+    <type>house</type>
+    <name>House Committee on Oversight and Government Reform</name>
+    <url>http://oversight.house.gov/</url>
+    <thomas_id>HSGO</thomas_id>
+    <house_committee_id>GO</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Federal Workforce, U.S. Postal Service, and the Census</name>
+        <thomas_id>25</thomas_id>
+        <address>2157 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5074</phone>
+      </child0>
+      <child1>
+        <name>Government Operations</name>
+        <thomas_id>24</thomas_id>
+        <address>2157 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5074</phone>
+      </child1>
+      <child2>
+        <name>National Security</name>
+        <thomas_id>06</thomas_id>
+        <address>2157 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5074</phone>
+      </child2>
+      <child3>
+        <name>Energy Policy, Health Care, and Entitlements</name>
+        <thomas_id>27</thomas_id>
+        <address>2157 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5074</phone>
+      </child3>
+      <child4>
+        <name>Economic Growth, Job Creation, and Regulatory Affairs</name>
+        <thomas_id>28</thomas_id>
+        <address>2157 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5074</phone>
+      </child4>
+      <child5>
+        <name>TARP, Financial Services and Bailouts of Public and Private Programs</name>
+        <thomas_id>29</thomas_id>
+        <address>2157 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5074</phone>
+      </child5>
+      <child6>
+        <name>Technology, Information Policy, Intergovernmental Relations and Procurement Reform</name>
+        <thomas_id>30</thomas_id>
+        <address>2157 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5074</phone>
+      </child6>
+    </subcommittees>
+    <address>2157 RHOB; Washington, DC 20515-6143</address>
+    <phone>(202) 225-5074</phone>
+    <rss_url>http://oversight.house.gov/feed/rss/</rss_url>
+  </child7>
+  <child8>
+    <type>house</type>
+    <name>House Committee on House Administration</name>
+    <url>http://cha.house.gov/</url>
+    <thomas_id>HSHA</thomas_id>
+    <house_committee_id>HA</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Oversight</name>
+        <thomas_id>06</thomas_id>
+        <address>1309 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-8281</phone>
+      </child0>
+      <child1>
+        <name>Elections</name>
+        <thomas_id>08</thomas_id>
+        <address>1309 LHOB; Washington, DC 20515-6157</address>
+        <phone>(202) 225-8281</phone>
+      </child1>
+    </subcommittees>
+    <address>1309 LHOB; Washington, DC 20515-6157</address>
+    <phone>(202) 225-8281</phone>
+    <rss_url>http://cha.house.gov/rss.xml</rss_url>
+    <minority_rss_url>http://democrats.cha.house.gov/rss.xml</minority_rss_url>
+  </child8>
+  <child9>
+    <type>house</type>
+    <name>House Committee on Homeland Security</name>
+    <url>http://homeland.house.gov/</url>
+    <thomas_id>HSHM</thomas_id>
+    <house_committee_id>HM</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Border and Maritime Security</name>
+        <thomas_id>11</thomas_id>
+        <address>H2-176 FHOB; Washington, DC 20515-6480</address>
+        <phone>(202) 226-8417</phone>
+      </child0>
+      <child1>
+        <name>Emergency Preparedness, Response and Communications</name>
+        <thomas_id>12</thomas_id>
+        <address>H2-176 FHOB; Washington, DC 20515-6480</address>
+        <phone>(202) 226-8417</phone>
+      </child1>
+      <child2>
+        <name>Cybersecurity, Infrastructure Protection, and Security Technologies</name>
+        <thomas_id>08</thomas_id>
+        <address>H2-176 FHOB; Washington, DC 20515-6480</address>
+        <phone>(202) 226-8417</phone>
+      </child2>
+      <child3>
+        <name>Counterterrorism and Intelligence</name>
+        <thomas_id>05</thomas_id>
+        <address>H2-176 FHOB; Washington, DC 20515-6480</address>
+        <phone>(202) 226-8417</phone>
+      </child3>
+      <child4>
+        <name>Oversight and Management Efficiency</name>
+        <thomas_id>09</thomas_id>
+        <address>H2-176 FHOB; Washington, DC 20515-6480</address>
+        <phone>(202) 226-8417</phone>
+      </child4>
+      <child5>
+        <name>Transportation Security</name>
+        <thomas_id>07</thomas_id>
+        <address>H2-176 FHOB; Washington, DC 20515-6480</address>
+        <phone>(202) 226-8417</phone>
+      </child5>
+    </subcommittees>
+    <address>H2-176 FHOB; Washington, DC 20515-6480</address>
+    <phone>(202) 226-8417</phone>
+    <rss_url>http://homeland.house.gov/rss.xml</rss_url>
+  </child9>
+  <child10>
+    <type>house</type>
+    <name>House Committee on Energy and Commerce</name>
+    <url>http://energycommerce.house.gov/</url>
+    <thomas_id>HSIF</thomas_id>
+    <house_committee_id>IF</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Commerce, Manufacturing, and Trade</name>
+        <thomas_id>17</thomas_id>
+        <address>2125 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2927</phone>
+      </child0>
+      <child1>
+        <name>Communications and Technology</name>
+        <thomas_id>16</thomas_id>
+        <address>2125 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2927</phone>
+      </child1>
+      <child2>
+        <name>Energy and Power</name>
+        <thomas_id>03</thomas_id>
+        <address>2125 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2927</phone>
+      </child2>
+      <child3>
+        <name>Health</name>
+        <thomas_id>14</thomas_id>
+        <address>2125 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2927</phone>
+      </child3>
+      <child4>
+        <name>Oversight and Investigations</name>
+        <thomas_id>02</thomas_id>
+        <address>2125 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2927</phone>
+      </child4>
+      <child5>
+        <name>Environment and the Economy</name>
+        <thomas_id>18</thomas_id>
+        <address>2125 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2927</phone>
+      </child5>
+    </subcommittees>
+    <address>2125 RHOB; Washington, DC 20515</address>
+    <phone>(202) 225-2927</phone>
+    <rss_url>http://energycommerce.house.gov/rss.aspx</rss_url>
+  </child10>
+  <child11>
+    <type>house</type>
+    <name>House Committee on Natural Resources</name>
+    <url>http://naturalresources.house.gov/</url>
+    <thomas_id>HSII</thomas_id>
+    <house_committee_id>II</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Energy and Mineral Resources</name>
+        <thomas_id>06</thomas_id>
+        <address>1333 LHOB; Washington, DC 20515-6208</address>
+        <phone>(202) 225-9297</phone>
+      </child0>
+      <child1>
+        <name>Public Lands and Environmental Regulation</name>
+        <thomas_id>10</thomas_id>
+        <address>1017 LHOB; Washington, DC 20515</address>
+        <phone>(202) 226-7736</phone>
+      </child1>
+      <child2>
+        <name>Water and Power</name>
+        <thomas_id>13</thomas_id>
+        <address>1522 LHOB; Washington, DC 20515-6204</address>
+        <phone>(202) 225-8331</phone>
+      </child2>
+      <child3>
+        <name>Fisheries, Wildlife, Oceans and Insular Affairs</name>
+        <thomas_id>22</thomas_id>
+        <address>140 CHOB; Washington, DC 20515</address>
+        <phone>(202) 226-0200</phone>
+      </child3>
+      <child4>
+        <name>Indian and Alaska Native Affairs</name>
+        <thomas_id>24</thomas_id>
+        <address>1337 LHOB; Washington, DC 20515</address>
+        <phone>(202) 226-9725</phone>
+      </child4>
+    </subcommittees>
+    <address>1324 LHOB; Washington, DC 20515-6201</address>
+    <phone>(202) 225-2761</phone>
+    <rss_url>http://naturalresources.house.gov/news.xml</rss_url>
+    <minority_rss_url>http://democrats.naturalresources.house.gov/rss.xml</minority_rss_url>
+  </child11>
+  <child12>
+    <type>house</type>
+    <name>House Permanent Select Committee on Intelligence</name>
+    <thomas_id>HLIG</thomas_id>
+    <house_committee_id>IG</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Oversight and Investigations</name>
+        <thomas_id>09</thomas_id>
+        <address>HVC304 CAPITOL; Washington, DC 20515</address>
+        <phone>(202) 225-4121</phone>
+      </child0>
+      <child1>
+        <name>Technical and Tactical Intelligence</name>
+        <thomas_id>05</thomas_id>
+        <address>HVC304 CAPITOL; Washington, DC 20515</address>
+        <phone>(202) 225-4121</phone>
+      </child1>
+      <child2>
+        <name>Terrorism, Human Intelligence, Analysis, and Counterintelligence</name>
+        <thomas_id>08</thomas_id>
+        <address>HVC304 CAPITOL; Washington, DC 20515</address>
+        <phone>(202) 225-4121</phone>
+      </child2>
+    </subcommittees>
+    <address>HVC304 CAPITOL; Washington, DC 20515-6415</address>
+    <phone>(202) 225-4121</phone>
+    <rss_url>http://intelligence.house.gov/rss.xml</rss_url>
+    <minority_rss_url>http://democrats.intelligence.house.gov/rss.xml</minority_rss_url>
+  </child12>
+  <child13>
+    <type>house</type>
+    <name>House Committee on the Judiciary</name>
+    <url>http://judiciary.house.gov/</url>
+    <thomas_id>HSJU</thomas_id>
+    <house_committee_id>JU</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>The Constitution and Civil Justice</name>
+        <thomas_id>10</thomas_id>
+        <address>H2-362 FHOB; Washington, DC 20515-6220</address>
+        <phone>(202) 225-2825</phone>
+      </child0>
+      <child1>
+        <name>Courts, Intellectual Property, and the Internet</name>
+        <thomas_id>03</thomas_id>
+        <address>B352 RHOB; Washington, DC 20515-6219</address>
+        <phone>(202) 225-5741</phone>
+      </child1>
+      <child2>
+        <name>Crime, Terrorism, Homeland Security, and Investigations</name>
+        <thomas_id>08</thomas_id>
+        <address>B370B RHOB; Washington, DC 20515-6223</address>
+        <phone>(202) 225-5727</phone>
+      </child2>
+      <child3>
+        <name>Immigration and Border Security</name>
+        <thomas_id>01</thomas_id>
+        <address>B353 RHOB; Washington, DC 20515-6217</address>
+        <phone>(202) 225-3926</phone>
+      </child3>
+      <child4>
+        <name>Intellectual Property, Competition, and the Internet</name>
+        <thomas_id>12</thomas_id>
+        <address>B352 RHOB; Washington, DC 20515-6218</address>
+        <phone>(202) 225-5741</phone>
+      </child4>
+      <child5>
+        <name>Regulatory Reform, Commercial, and Antitrust Law</name>
+        <thomas_id>05</thomas_id>
+        <address>517 CHOB; Washington, DC 20515-6218</address>
+        <phone>(202) 226-7680</phone>
+      </child5>
+    </subcommittees>
+    <address>2138 RHOB; Washington, DC 20515-6216</address>
+    <phone>(202) 225-3951</phone>
+    <minority_rss_url>http://democrats.judiciary.house.gov/rss.xml</minority_rss_url>
+  </child13>
+  <child14>
+    <type>house</type>
+    <name>House Committee on Transportation and Infrastructure</name>
+    <url>http://transportation.house.gov/</url>
+    <thomas_id>HSPW</thomas_id>
+    <house_committee_id>PW</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Aviation</name>
+        <thomas_id>05</thomas_id>
+        <address>2251 RHOB; Washington, DC 20515-6257</address>
+        <phone>(202) 226-3220</phone>
+      </child0>
+      <child1>
+        <name>Coast Guard and Maritime Transportation</name>
+        <thomas_id>07</thomas_id>
+        <address>H2-507 FHOB; Washington, DC 20515-6231</address>
+        <phone>(202) 226-3552</phone>
+      </child1>
+      <child2>
+        <name>Economic Development, Public Buildings, and Emergency Management</name>
+        <thomas_id>13</thomas_id>
+        <address>H2-585 FHOB; Washington, DC 20515-6260</address>
+        <phone>(202) 225-3014</phone>
+      </child2>
+      <child3>
+        <name>Highways and Transit</name>
+        <thomas_id>12</thomas_id>
+        <address>B376 RHOB; Washington, DC 20515-6263</address>
+        <phone>(202) 225-6715</phone>
+      </child3>
+      <child4>
+        <name>Railroads, Pipelines, and Hazardous Materials</name>
+        <thomas_id>14</thomas_id>
+        <address>B376 RHOB; Washington, DC 20515-6263</address>
+        <phone>(202) 226-0727</phone>
+      </child4>
+      <child5>
+        <name>Water Resources and Environment</name>
+        <thomas_id>02</thomas_id>
+        <address>B370A RHOB; Washington, DC 20515-6262</address>
+        <phone>(202) 225-4360</phone>
+      </child5>
+    </subcommittees>
+    <address>2165 RHOB; Washington, DC 20515-6256</address>
+    <phone>(202) 225-9446</phone>
+    <rss_url>http://transportation.house.gov/rss.xml</rss_url>
+    <minority_rss_url>http://democrats.transportation.house.gov/rss.xml</minority_rss_url>
+  </child14>
+  <child15>
+    <type>house</type>
+    <name>House Committee on Rules</name>
+    <url>http://www.rules.house.gov/</url>
+    <thomas_id>HSRU</thomas_id>
+    <house_committee_id>RU</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Legislative and Budget Process</name>
+        <thomas_id>02</thomas_id>
+        <address>2233 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-2231</phone>
+      </child0>
+      <child1>
+        <name>Rules and Organization of the House</name>
+        <thomas_id>04</thomas_id>
+        <address>1517 LHOB; Washington, DC 20515</address>
+        <phone>(202) 225-1002</phone>
+      </child1>
+    </subcommittees>
+    <address>H312 CAPITOL; Washington, DC 20515-6269</address>
+    <phone>(202) 225-9191</phone>
+    <minority_rss_url>http://democrats.rules.house.gov/rss.xml</minority_rss_url>
+  </child15>
+  <child16>
+    <type>house</type>
+    <name>House Committee on Small Business</name>
+    <url>http://www.house.gov/smbiz/</url>
+    <thomas_id>HSSM</thomas_id>
+    <house_committee_id>SM</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Contracting and Workforce</name>
+        <thomas_id>23</thomas_id>
+        <address>2361 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5821</phone>
+      </child0>
+      <child1>
+        <name>Investigations, Oversight and Regulations</name>
+        <thomas_id>24</thomas_id>
+        <address>2361 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5821</phone>
+      </child1>
+      <child2>
+        <name>Agriculture, Energy and Trade</name>
+        <thomas_id>25</thomas_id>
+        <address>2361 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5821</phone>
+      </child2>
+      <child3>
+        <name>Health and Technology</name>
+        <thomas_id>26</thomas_id>
+        <address>2361 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5821</phone>
+      </child3>
+      <child4>
+        <name>Economic Growth, Tax and Capital Access</name>
+        <thomas_id>27</thomas_id>
+        <address>2361 RHOB; Washington, DC 20515</address>
+        <phone>(202) 225-5821</phone>
+      </child4>
+    </subcommittees>
+    <address>2361 RHOB; Washington, DC 20515-6315</address>
+    <phone>(202) 225-5821</phone>
+    <rss_url>http://smallbusiness.house.gov/news/rss.aspx</rss_url>
+    <minority_rss_url>http://democrats.smallbusiness.house.gov/rss.xml</minority_rss_url>
+  </child16>
+  <child17>
+    <type>house</type>
+    <name>House Committee on Ethics</name>
+    <url>http://ethics.house.gov/</url>
+    <thomas_id>HSSO</thomas_id>
+    <house_committee_id>SO</house_committee_id>
+    <address>1015 LHOB; Washington, DC 20515-6328</address>
+    <phone>(202) 225-7103</phone>
+    <rss_url>http://ethics.house.gov/rss.xml</rss_url>
+  </child17>
+  <child18>
+    <type>house</type>
+    <name>House Committee on Science, Space, and Technology</name>
+    <url>http://science.house.gov/</url>
+    <thomas_id>HSSY</thomas_id>
+    <house_committee_id>SY</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Energy</name>
+        <thomas_id>20</thomas_id>
+        <address>2319 RHOB; Washington, DC 20515-6301</address>
+        <phone>(202) 225-6371</phone>
+      </child0>
+      <child1>
+        <name>Oversight</name>
+        <thomas_id>21</thomas_id>
+        <address>2321 RHOB; Washington, DC 20515-6301</address>
+        <phone>(202) 225-6371</phone>
+      </child1>
+      <child2>
+        <name>Research</name>
+        <thomas_id>14</thomas_id>
+        <address>B374 RHOB; Washington, DC 20515-6301</address>
+        <phone>(202) 225-6371</phone>
+      </child2>
+      <child3>
+        <name>Space</name>
+        <thomas_id>16</thomas_id>
+        <address>B374 RHOB; Washington, DC 20515-6301</address>
+        <phone>(202) 225-6371</phone>
+      </child3>
+      <child4>
+        <name>Technology</name>
+        <thomas_id>19</thomas_id>
+        <address>B374 RHOB; Washington, DC 20515-6301</address>
+        <phone>(202) 225-6371</phone>
+      </child4>
+      <child5>
+        <name>Environment</name>
+        <thomas_id>18</thomas_id>
+        <address>2319 RHOB; Washington, DC 20515-6301</address>
+        <phone>(202) 225-6371</phone>
+      </child5>
+      <child6>
+        <name>Research and Technology</name>
+        <thomas_id>15</thomas_id>
+        <address>B374 RHOB; Washington, DC 20515-6301</address>
+        <phone>(202) 225-6371</phone>
+      </child6>
+    </subcommittees>
+    <address>2321 RHOB; Washington, DC 20515-6301</address>
+    <phone>(202) 225-6371</phone>
+    <rss_url>http://science.house.gov/rss.xml</rss_url>
+    <minority_rss_url>http://democrats.science.house.gov/rss.xml</minority_rss_url>
+  </child18>
+  <child19>
+    <type>house</type>
+    <name>House Committee on Veterans' Affairs</name>
+    <url>http://veterans.house.gov/</url>
+    <thomas_id>HSVR</thomas_id>
+    <house_committee_id>VR</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Disability Assistance and Memorial Affairs</name>
+        <thomas_id>09</thomas_id>
+        <address>337 CHOB; Washington, DC 20515</address>
+        <phone>(202) 225-9164</phone>
+      </child0>
+      <child1>
+        <name>Economic Opportunity</name>
+        <thomas_id>10</thomas_id>
+        <address>335 CHOB; Washington, DC 20515</address>
+        <phone>(202) 226-5491</phone>
+      </child1>
+      <child2>
+        <name>Health</name>
+        <thomas_id>03</thomas_id>
+        <address>338 CHOB; Washington, DC 20515-6340</address>
+        <phone>(202) 225-9154</phone>
+      </child2>
+      <child3>
+        <name>Oversight and Investigations</name>
+        <thomas_id>08</thomas_id>
+        <address>337A CHOB; Washington, DC 20515-6339</address>
+        <phone>(202) 225-3569</phone>
+      </child3>
+    </subcommittees>
+    <address>335 CHOB; Washington, DC 20515-6335</address>
+    <phone>(202) 225-3527</phone>
+    <rss_url>http://veterans.house.gov/rss.xml</rss_url>
+    <minority_rss_url>http://democrats.veterans.house.gov/rss.xml</minority_rss_url>
+  </child19>
+  <child20>
+    <type>house</type>
+    <name>House Committee on Ways and Means</name>
+    <url>http://waysandmeans.house.gov/</url>
+    <thomas_id>HSWM</thomas_id>
+    <house_committee_id>WM</house_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Health</name>
+        <thomas_id>02</thomas_id>
+        <address>1135 LHOB; Washington, DC 20515-6349</address>
+        <phone>(202) 225-3943</phone>
+      </child0>
+      <child1>
+        <name>Human Resources</name>
+        <thomas_id>03</thomas_id>
+        <address>1129 LHOB; Washington, DC 20515-6351</address>
+        <phone>(202) 225-1025</phone>
+      </child1>
+      <child2>
+        <name>Oversight</name>
+        <thomas_id>06</thomas_id>
+        <address>1136 LHOB; Washington, DC 20515-6352</address>
+        <phone>(202) 225-5522</phone>
+      </child2>
+      <child3>
+        <name>Select Revenue Measures</name>
+        <thomas_id>05</thomas_id>
+        <address>1136 LHOB; Washington, DC 20515-6348</address>
+        <phone>(202) 225-5522</phone>
+      </child3>
+      <child4>
+        <name>Social Security</name>
+        <thomas_id>01</thomas_id>
+        <address>B317 RHOB; Washington, DC 20515-6353</address>
+        <phone>(202) 225-9263</phone>
+      </child4>
+      <child5>
+        <name>Trade</name>
+        <thomas_id>04</thomas_id>
+        <address>1104 LHOB; Washington, DC 20515-6354</address>
+        <phone>(202) 225-6649</phone>
+      </child5>
+    </subcommittees>
+    <address>1102 LHOB; Washington, DC 20515-6348</address>
+    <phone>(202) 225-3625</phone>
+    <minority_rss_url>http://democrats.waysandmeans.house.gov/rss.xml</minority_rss_url>
+  </child20>
+  <child21>
+    <type>joint</type>
+    <name>Commission on Security and Cooperation in Europe</name>
+    <thomas_id>JCSE</thomas_id>
+    <senate_committee_id>JCSE</senate_committee_id>
+    <wikipedia>Commission on Security and Cooperation in Europe</wikipedia>
+  </child21>
+  <child22>
+    <type>joint</type>
+    <name>Joint Economic Committee</name>
+    <url>http://jec.senate.gov/</url>
+    <thomas_id>JSEC</thomas_id>
+    <senate_committee_id>JSEC</senate_committee_id>
+    <rss_url>http://www.jec.senate.gov/republicans/public/?a=RSS.Feed</rss_url>
+    <minority_rss_url>http://www.jec.senate.gov/public/?a=RSS.Feed</minority_rss_url>
+    <wikipedia>Joint Economic Committee</wikipedia>
+  </child22>
+  <child23>
+    <type>joint</type>
+    <name>Joint Committee on the Library</name>
+    <thomas_id>JSLC</thomas_id>
+    <senate_committee_id>JSLC</senate_committee_id>
+    <wikipedia>Joint Committee on the Library</wikipedia>
+  </child23>
+  <child24>
+    <type>joint</type>
+    <name>Joint Committee on Printing</name>
+    <thomas_id>JSPR</thomas_id>
+    <senate_committee_id>JSPR</senate_committee_id>
+    <wikipedia>Joint Committee on Printing</wikipedia>
+  </child24>
+  <child25>
+    <type>joint</type>
+    <name>Joint Committee on Taxation</name>
+    <thomas_id>JSTX</thomas_id>
+    <senate_committee_id>JSTX</senate_committee_id>
+    <wikipedia>United States Congress Joint Committee on Taxation</wikipedia>
+  </child25>
+  <child26>
+    <type>senate</type>
+    <name>United States Senate Caucus on International Narcotics Control</name>
+    <thomas_id>SCNC</thomas_id>
+    <senate_committee_id>SCNC</senate_committee_id>
+  </child26>
+  <child27>
+    <type>senate</type>
+    <name>Senate Select Committee on Ethics</name>
+    <url>http://ethics.senate.gov/</url>
+    <thomas_id>SLET</thomas_id>
+    <senate_committee_id>SLET</senate_committee_id>
+    <rss_url>http://www.ethics.senate.gov/public/?a=RSS.Feed</rss_url>
+    <wikipedia>United States Senate Select Committee on Ethics</wikipedia>
+  </child27>
+  <child28>
+    <type>senate</type>
+    <name>Senate Committee on Indian Affairs</name>
+    <url>http://indian.senate.gov/</url>
+    <thomas_id>SLIA</thomas_id>
+    <senate_committee_id>SLIA</senate_committee_id>
+    <wikipedia>United States Senate Committee on Indian Affairs</wikipedia>
+  </child28>
+  <child29>
+    <type>senate</type>
+    <name>Senate Select Committee on Intelligence</name>
+    <url>http://intelligence.senate.gov/</url>
+    <thomas_id>SLIN</thomas_id>
+    <senate_committee_id>SLIN</senate_committee_id>
+    <wikipedia>United States Senate Select Committee on Intelligence</wikipedia>
+  </child29>
+  <child30>
+    <type>senate</type>
+    <name>Senate Special Committee on Aging</name>
+    <thomas_id>SPAG</thomas_id>
+    <senate_committee_id>SPAG</senate_committee_id>
+    <wikipedia>United States Senate Special Committee on Aging</wikipedia>
+  </child30>
+  <child31>
+    <type>senate</type>
+    <name>Senate Committee on Agriculture, Nutrition, and Forestry</name>
+    <url>http://agriculture.senate.gov/</url>
+    <thomas_id>SSAF</thomas_id>
+    <senate_committee_id>SSAF</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Commodities, Markets, Trade and Risk Management</name>
+        <thomas_id>13</thomas_id>
+        <wikipedia>United States Senate Agriculture Subcommittee on Commodities, Markets, Trade and Risk Management</wikipedia>
+      </child0>
+      <child1>
+        <name>Conservation, Forestry and Natural Resources</name>
+        <thomas_id>14</thomas_id>
+        <wikipedia>United States Senate Agriculture Subcommittee on Conservation, Forestry and Natural Resources</wikipedia>
+      </child1>
+      <child2>
+        <name>Jobs, Rural Economic Growth and Energy Innovation</name>
+        <thomas_id>15</thomas_id>
+        <wikipedia>United States Senate Agriculture Subcommittee on Jobs, Rural Economic Growth and Energy Innovation</wikipedia>
+      </child2>
+      <child3>
+        <name>Nutrition, Specialty Crops, Food and Agricultural Research</name>
+        <thomas_id>16</thomas_id>
+        <wikipedia>United States Senate Agriculture Subcommittee on Nutrition, Specialty Crops, Food and Agricultural Research</wikipedia>
+      </child3>
+      <child4>
+        <name>Livestock, Dairy, Poultry, Marketing and Agriculture Security</name>
+        <thomas_id>17</thomas_id>
+        <wikipedia>United States Senate Agriculture Subcommittee on Livestock, Dairy, Poultry, Marketing and Agriculture Security</wikipedia>
+      </child4>
+    </subcommittees>
+    <rss_url>http://www.ag.senate.gov/rss/feeds/?type=press&amp;groups=democrat</rss_url>
+    <minority_rss_url>http://www.ag.senate.gov/rss/feeds/?type=press&amp;groups=republican</minority_rss_url>
+    <wikipedia>United States Senate Committee on Agriculture, Nutrition and Forestry</wikipedia>
+  </child31>
+  <child32>
+    <type>senate</type>
+    <name>Senate Committee on Appropriations</name>
+    <url>http://appropriations.senate.gov/</url>
+    <thomas_id>SSAP</thomas_id>
+    <senate_committee_id>SSAP</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Commerce, Justice, Science, and Related Agencies</name>
+        <thomas_id>16</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Commerce, Justice, Science, and Related Agencies</wikipedia>
+      </child0>
+      <child1>
+        <name>Energy and Water Development</name>
+        <thomas_id>22</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Financial Services and General Government</wikipedia>
+      </child1>
+      <child2>
+        <name>Financial Services and General Government</name>
+        <thomas_id>23</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Financial Services and General Government</wikipedia>
+      </child2>
+      <child3>
+        <name>Department of Homeland Security</name>
+        <thomas_id>14</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Homeland Security</wikipedia>
+      </child3>
+      <child4>
+        <name>Department of the Interior, Environment, and Related Agencies</name>
+        <thomas_id>17</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Interior, Environment, and Related Agencies</wikipedia>
+      </child4>
+      <child5>
+        <name>Departments of Labor, Health and Human Services, and Education, and Related Agencies</name>
+        <thomas_id>18</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Labor, Health and Human Services, Education, and Related Agencies</wikipedia>
+      </child5>
+      <child6>
+        <name>Military Construction and Veterans Affairs, and Related Agencies</name>
+        <thomas_id>19</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Military Construction, Veterans Affairs, and Related Agencies</wikipedia>
+      </child6>
+      <child7>
+        <name>State, Foreign Operations, and Related Programs</name>
+        <thomas_id>20</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on the Department of State, Foreign Operations, and Related Programs</wikipedia>
+      </child7>
+      <child8>
+        <name>Transportation and Housing and Urban Development, and Related Agencies</name>
+        <thomas_id>24</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Transportation, Housing and Urban Development, and Related Agencies</wikipedia>
+      </child8>
+      <child9>
+        <name>Agriculture, Rural Development, Food and Drug Administration, and Related Agencies</name>
+        <thomas_id>01</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Agriculture, Rural Development, Food and Drug Administration, and Related Agencies</wikipedia>
+      </child9>
+      <child10>
+        <name>Department of Defense</name>
+        <thomas_id>02</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Defense</wikipedia>
+      </child10>
+      <child11>
+        <name>Legislative Branch</name>
+        <thomas_id>08</thomas_id>
+        <wikipedia>United States Senate Appropriations Subcommittee on Legislative Branch</wikipedia>
+      </child11>
+    </subcommittees>
+    <wikipedia>United States Senate Committee on Appropriations</wikipedia>
+  </child32>
+  <child33>
+    <type>senate</type>
+    <name>Senate Committee on Armed Services</name>
+    <url>http://armed-services.senate.gov/</url>
+    <thomas_id>SSAS</thomas_id>
+    <senate_committee_id>SSAS</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Airland</name>
+        <thomas_id>14</thomas_id>
+        <wikipedia>United States Senate Armed Services Subcommittee on Airland</wikipedia>
+      </child0>
+      <child1>
+        <name>Emerging Threats and Capabilities</name>
+        <thomas_id>20</thomas_id>
+        <wikipedia>United States Senate Armed Services Subcommittee on Emerging Threats and Capabilities</wikipedia>
+      </child1>
+      <child2>
+        <name>Personnel</name>
+        <thomas_id>17</thomas_id>
+        <wikipedia>United States Senate Armed Services Subcommittee on Personnel</wikipedia>
+      </child2>
+      <child3>
+        <name>Readiness and Management Support</name>
+        <thomas_id>15</thomas_id>
+        <wikipedia>United States Senate Armed Services Subcommittee on Readiness and Management Support</wikipedia>
+      </child3>
+      <child4>
+        <name>SeaPower</name>
+        <thomas_id>13</thomas_id>
+        <wikipedia>United States Senate Armed Services Subcommittee on Seapower</wikipedia>
+      </child4>
+      <child5>
+        <name>Strategic Forces</name>
+        <thomas_id>16</thomas_id>
+        <wikipedia>United States Senate Armed Services Subcommittee on Strategic Forces</wikipedia>
+      </child5>
+    </subcommittees>
+    <rss_url>http://www.armed-services.senate.gov/press/index.cfm?xml=Press%20Releases,RSS2.0</rss_url>
+    <wikipedia>United States Senate Committee on Armed Services</wikipedia>
+  </child33>
+  <child34>
+    <type>senate</type>
+    <name>Senate Committee on Banking, Housing, and Urban Affairs</name>
+    <url>http://banking.senate.gov/</url>
+    <thomas_id>SSBK</thomas_id>
+    <senate_committee_id>SSBK</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Economic Policy</name>
+        <thomas_id>12</thomas_id>
+        <wikipedia>United States Senate Banking Subcommittee on Economic Policy</wikipedia>
+      </child0>
+      <child1>
+        <name>National Security and International Trade and Finance</name>
+        <thomas_id>05</thomas_id>
+        <wikipedia>United States Senate Banking Subcommittee on Security and International Trade and Finance</wikipedia>
+      </child1>
+      <child2>
+        <name>Securities, Insurance, and Investment</name>
+        <thomas_id>04</thomas_id>
+        <wikipedia>United States Senate Banking Subcommittee on Securities, Insurance, and Investment</wikipedia>
+      </child2>
+      <child3>
+        <name>Housing, Transportation, and Community Development</name>
+        <thomas_id>09</thomas_id>
+        <wikipedia>United States Senate Banking Subcommittee on Housing, Transportation, and Community Development</wikipedia>
+      </child3>
+      <child4>
+        <name>Financial Institutions and Consumer Protection</name>
+        <thomas_id>08</thomas_id>
+        <wikipedia>United States Senate Banking Subcommittee on Financial Institutions and Consumer Protection</wikipedia>
+      </child4>
+    </subcommittees>
+    <wikipedia>United States Senate Committee on Banking, Housing, and Urban Affairs</wikipedia>
+  </child34>
+  <child35>
+    <type>senate</type>
+    <name>Senate Committee on the Budget</name>
+    <url>http://budget.senate.gov/</url>
+    <thomas_id>SSBU</thomas_id>
+    <senate_committee_id>SSBU</senate_committee_id>
+    <rss_url>http://budget.senate.gov/democratic/index.cfm?a=RSS.Feed&amp;Type=press-releases,statements</rss_url>
+    <minority_rss_url>http://budget.senate.gov/republican/public/index.cfm/rss/feed</minority_rss_url>
+    <wikipedia>United States Senate Committee on the Budget</wikipedia>
+  </child35>
+  <child36>
+    <type>senate</type>
+    <name>Senate Committee on Commerce, Science, and Transportation</name>
+    <url>http://commerce.senate.gov/</url>
+    <thomas_id>SSCM</thomas_id>
+    <senate_committee_id>SSCM</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Communications, Technology, and the Internet</name>
+        <thomas_id>26</thomas_id>
+        <wikipedia>United States Senate Commerce Subcommittee on Communications, Technology, and the Internet</wikipedia>
+      </child0>
+      <child1>
+        <name>Competitiveness, Innovation, and Export Promotion</name>
+        <thomas_id>27</thomas_id>
+        <wikipedia>United States Senate Commerce Subcommittee on Competitiveness, Innovation, and Export Promotion</wikipedia>
+      </child1>
+      <child2>
+        <name>Consumer Protection, Product Safety, and Insurance</name>
+        <thomas_id>20</thomas_id>
+        <wikipedia>United States Senate Commerce Subcommittee on Consumer Protection, Product Safety, and Insurance</wikipedia>
+      </child2>
+      <child3>
+        <name>Oceans, Atmosphere, Fisheries, and Coast Guard</name>
+        <thomas_id>22</thomas_id>
+        <wikipedia>United States Senate Commerce Subcommittee on Oceans, Atmosphere, Fisheries, and Coast Guard</wikipedia>
+      </child3>
+      <child4>
+        <name>Science and Space</name>
+        <thomas_id>24</thomas_id>
+        <wikipedia>United States Senate Commerce Subcommittee on Science and Space</wikipedia>
+      </child4>
+      <child5>
+        <name>Surface Transportation and Merchant Marine Infrastructure, Safety, and Security</name>
+        <thomas_id>25</thomas_id>
+        <wikipedia>United States Senate Commerce Subcommittee on Surface Transportation and Merchant Marine Infrastructure, Safety, and Security</wikipedia>
+      </child5>
+      <child6>
+        <name>Aviation Operations, Safety, and Security</name>
+        <thomas_id>01</thomas_id>
+        <wikipedia>United States Senate Commerce Subcommittee on Aviation Operations, Safety, and Security</wikipedia>
+      </child6>
+    </subcommittees>
+    <rss_url>http://www.commerce.senate.gov/public/?a=RSS.Feed</rss_url>
+    <wikipedia>United States Senate Committee on Commerce, Science and Transportation</wikipedia>
+  </child36>
+  <child37>
+    <type>senate</type>
+    <name>Senate Committee on Energy and Natural Resources</name>
+    <url>http://energy.senate.gov/</url>
+    <thomas_id>SSEG</thomas_id>
+    <senate_committee_id>SSEG</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Water and Power</name>
+        <thomas_id>07</thomas_id>
+        <wikipedia>United States Senate Energy Subcommittee on Water and Power</wikipedia>
+      </child0>
+      <child1>
+        <name>National Parks</name>
+        <thomas_id>04</thomas_id>
+        <wikipedia>United States Senate Energy Subcommittee on National Parks</wikipedia>
+      </child1>
+      <child2>
+        <name>Energy</name>
+        <thomas_id>01</thomas_id>
+        <wikipedia>United States Senate Energy Subcommittee on Energy</wikipedia>
+      </child2>
+      <child3>
+        <name>Public Lands, Forests, and Mining</name>
+        <thomas_id>03</thomas_id>
+        <wikipedia>United States Senate Energy Subcommittee on Public Lands, Forests and Mining</wikipedia>
+      </child3>
+    </subcommittees>
+    <rss_url>http://www.energy.senate.gov/public/index.cfm/rss/feed?type=democratic-news</rss_url>
+    <minority_rss_url>http://www.energy.senate.gov/public/index.cfm/rss/feed?type=republican-news</minority_rss_url>
+    <wikipedia>United States Senate Committee on Energy and Natural Resources</wikipedia>
+  </child37>
+  <child38>
+    <type>senate</type>
+    <name>Senate Committee on Environment and Public Works</name>
+    <url>http://epw.senate.gov/</url>
+    <thomas_id>SSEV</thomas_id>
+    <senate_committee_id>SSEV</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Clean Air and Nuclear Safety</name>
+        <thomas_id>10</thomas_id>
+        <wikipedia>United States Senate Environment and Public Works Subcommittee on Clean Air and Nuclear Safety</wikipedia>
+      </child0>
+      <child1>
+        <name>Superfund, Toxics and Environmental Health</name>
+        <thomas_id>09</thomas_id>
+        <wikipedia>United States Senate Environment and Public Works Subcommittee on Superfund, Toxics and Environmental Health</wikipedia>
+      </child1>
+      <child2>
+        <thomas_id>16</thomas_id>
+        <name>Green Jobs and the New Economy</name>
+        <wikipedia>United States Senate Environment and Public Works Subcommittee on Green Jobs and the New Economy</wikipedia>
+      </child2>
+      <child3>
+        <thomas_id>18</thomas_id>
+        <name>Oversight</name>
+        <wikipedia>United States Senate Environment and Public Works Subcommittee on Oversight</wikipedia>
+      </child3>
+      <child4>
+        <thomas_id>08</thomas_id>
+        <name>Transportation and Infrastructure</name>
+        <wikipedia>United States Senate Environment and Public Works Subcommittee on Transportation and Infrastructure</wikipedia>
+      </child4>
+      <child5>
+        <thomas_id>15</thomas_id>
+        <name>Water and Wildlife</name>
+        <wikipedia>United States Senate Environment and Public Works Subcommittee on Water and Wildlife</wikipedia>
+      </child5>
+    </subcommittees>
+    <rss_url>http://www.epw.senate.gov/public/index.cfm?FuseAction=RSS.Majority</rss_url>
+    <minority_rss_url>http://www.epw.senate.gov/public/index.cfm?FuseAction=RSS.Minority</minority_rss_url>
+    <wikipedia>United States Senate Committee on Environment and Public Works</wikipedia>
+  </child38>
+  <child39>
+    <type>senate</type>
+    <name>Senate Committee on Finance</name>
+    <url>http://finance.senate.gov/</url>
+    <thomas_id>SSFI</thomas_id>
+    <senate_committee_id>SSFI</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Energy, Natural Resources, and Infrastructure</name>
+        <thomas_id>12</thomas_id>
+        <wikipedia>United States Senate Finance Subcommittee on Energy, Natural Resources, and Infrastructure</wikipedia>
+      </child0>
+      <child1>
+        <name>Health Care</name>
+        <thomas_id>10</thomas_id>
+        <wikipedia>United States Senate Finance Subcommittee on Health Care</wikipedia>
+      </child1>
+      <child2>
+        <name>International Trade, Customs, and Global Competitiveness</name>
+        <thomas_id>13</thomas_id>
+        <wikipedia>United States Senate Finance Subcommittee on International Trade, Customs, and Global Competitiveness</wikipedia>
+      </child2>
+      <child3>
+        <name>Fiscal Responsibility and Economic Growth</name>
+        <thomas_id>14</thomas_id>
+        <wikipedia>United States Senate Finance Subcommittee on Fiscal Responsibility and Economic Growth</wikipedia>
+      </child3>
+      <child4>
+        <name>Taxation and IRS Oversight</name>
+        <thomas_id>11</thomas_id>
+        <wikipedia>United States Senate Finance Subcommittee on Taxation and IRS Oversight</wikipedia>
+      </child4>
+      <child5>
+        <name>Social Security, Pensions, and Family Policy</name>
+        <thomas_id>02</thomas_id>
+        <wikipedia>United States Senate Finance Subcommittee on Social Security, Pensions, and Family Policy</wikipedia>
+      </child5>
+    </subcommittees>
+    <rss_url>http://www.finance.senate.gov/rss/feed/chair/</rss_url>
+    <minority_rss_url>http://www.finance.senate.gov/rss/feed/ranking/</minority_rss_url>
+    <wikipedia>United States Senate Committee on Finance</wikipedia>
+  </child39>
+  <child40>
+    <type>senate</type>
+    <name>Senate Committee on Foreign Relations</name>
+    <url>http://foreign.senate.gov/</url>
+    <thomas_id>SSFR</thomas_id>
+    <senate_committee_id>SSFR</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>International Development and Foreign Assistance, Economic Affairs, International Environmental Protection, and Peace Corps</name>
+        <thomas_id>12</thomas_id>
+        <wikipedia>United States Senate Foreign Relations Subcommittee on International Development and Foreign Assistance, Economic Affairs and International Environmental Protection, and Peace Corps</wikipedia>
+      </child0>
+      <child1>
+        <name>International Operations and Organizations, Human Rights, Democracy, and Global Women's Issues</name>
+        <thomas_id>13</thomas_id>
+        <wikipedia>United States Senate Foreign Relations Subcommittee on International Operations and Organizations, Human Rights, Democracy and Global Women's Issues</wikipedia>
+      </child1>
+      <child2>
+        <name>European Affairs</name>
+        <thomas_id>01</thomas_id>
+        <wikipedia>United States Senate Foreign Relations Subcommittee on European Affairs</wikipedia>
+      </child2>
+      <child3>
+        <name>African Affairs</name>
+        <thomas_id>09</thomas_id>
+        <wikipedia>United States Senate Foreign Relations Subcommittee on African Affairs</wikipedia>
+      </child3>
+      <child4>
+        <name>East Asian and Pacific Affairs</name>
+        <thomas_id>02</thomas_id>
+        <wikipedia>United States Senate Foreign Relations Subcommittee on East Asian and Pacific Affairs</wikipedia>
+      </child4>
+      <child5>
+        <name>Near Eastern and South and Central Asian Affairs</name>
+        <thomas_id>07</thomas_id>
+        <wikipedia>United States Senate Foreign Relations Subcommittee on Near Eastern and South and Central Asian Affairs</wikipedia>
+      </child5>
+      <child6>
+        <name>Western Hemisphere and Global Narcotics Affairs</name>
+        <thomas_id>06</thomas_id>
+        <wikipedia>United States Senate Foreign Relations Subcommittee on Western Hemisphere and Global Narcotics Affairs</wikipedia>
+      </child6>
+    </subcommittees>
+    <rss_url>http://www.foreign.senate.gov/rss/feed/chair/</rss_url>
+    <minority_rss_url>http://www.foreign.senate.gov/rss/feed/ranking/</minority_rss_url>
+    <wikipedia>United States Senate Committee on Foreign Relations</wikipedia>
+  </child40>
+  <child41>
+    <type>senate</type>
+    <name>Senate Committee on Homeland Security and Governmental Affairs</name>
+    <url>http://hsgac.senate.gov/</url>
+    <thomas_id>SSGA</thomas_id>
+    <senate_committee_id>SSGA</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <thomas_id>01</thomas_id>
+        <name>Permanent Subcommittee on Investigations</name>
+        <wikipedia>United States Senate Homeland Security Permanent Subcommittee on Investigations</wikipedia>
+      </child0>
+      <child1>
+        <thomas_id>17</thomas_id>
+        <name>Emergency Management, Intergovernmental Relations, and the District of Columbia</name>
+      </child1>
+      <child2>
+        <thomas_id>15</thomas_id>
+        <name>Financial and Contracting Oversight</name>
+      </child2>
+      <child3>
+        <thomas_id>16</thomas_id>
+        <name>the Efficiency and Effectiveness of Federal Programs and the Federal Workforce</name>
+      </child3>
+    </subcommittees>
+    <wikipedia>United States Senate Committee on Homeland Security and Governmental Affairs</wikipedia>
+  </child41>
+  <child42>
+    <type>senate</type>
+    <name>Senate Committee on Health, Education, Labor, and Pensions</name>
+    <url>http://help.senate.gov/</url>
+    <thomas_id>SSHR</thomas_id>
+    <senate_committee_id>SSHR</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>Employment and Workplace Safety</name>
+        <thomas_id>11</thomas_id>
+        <wikipedia>United States Senate Health Subcommittee on Employment and Workplace Safety</wikipedia>
+      </child0>
+      <child1>
+        <name>Primary Health and Aging</name>
+        <thomas_id>12</thomas_id>
+        <wikipedia>United States Senate Health Subcommittee on Primary Health and Aging</wikipedia>
+      </child1>
+      <child2>
+        <name>Children and Families</name>
+        <thomas_id>09</thomas_id>
+        <wikipedia>United States Senate Health Subcommittee on Children and Families</wikipedia>
+      </child2>
+    </subcommittees>
+    <rss_url>http://www.help.senate.gov/rss/feed/chair/</rss_url>
+    <minority_rss_url>http://www.help.senate.gov/rss/feed/ranking/</minority_rss_url>
+    <wikipedia>United States Senate Committee on Health, Education, Labor, and Pensions</wikipedia>
+  </child42>
+  <child43>
+    <type>senate</type>
+    <name>Senate Committee on the Judiciary</name>
+    <url>http://judiciary.senate.gov/</url>
+    <thomas_id>SSJU</thomas_id>
+    <senate_committee_id>SSJU</senate_committee_id>
+    <subcommittees>
+      <child0>
+        <name>the Constitution, Civil Rights and Human Rights</name>
+        <thomas_id>21</thomas_id>
+        <wikipedia>United States Senate Judiciary Subcommittee on the Constitution, Civil Rights and Human Rights</wikipedia>
+      </child0>
+      <child1>
+        <name>Crime and Terrorism</name>
+        <thomas_id>22</thomas_id>
+        <wikipedia>United States Senate Judiciary Subcommittee on Crime and Terrorism</wikipedia>
+      </child1>
+      <child2>
+        <name>Privacy, Technology and the Law</name>
+        <thomas_id>23</thomas_id>
+        <wikipedia>United States Senate Judiciary Subcommittee on Privacy, Technology and the Law</wikipedia>
+      </child2>
+      <child3>
+        <name>Antitrust, Competition Policy and Consumer Rights</name>
+        <thomas_id>01</thomas_id>
+        <wikipedia>United States Senate Judiciary Subcommittee on Antitrust, Competition Policy and Consumer Rights</wikipedia>
+      </child3>
+      <child4>
+        <name>Immigration, Refugees and Border Security</name>
+        <thomas_id>04</thomas_id>
+        <wikipedia>United States Senate Judiciary Subcommittee on Immigration, Refugees and Border Security</wikipedia>
+      </child4>
+      <child5>
+        <thomas_id>24</thomas_id>
+        <name>Bankruptcy and the Courts</name>
+      </child5>
+      <child6>
+        <thomas_id>25</thomas_id>
+        <name>Oversight, Federal Rights and Agency Action</name>
+      </child6>
+    </subcommittees>
+    <wikipedia>United States Senate Committee on the Judiciary</wikipedia>
+  </child43>
+  <child44>
+    <type>senate</type>
+    <name>Senate Committee on Rules and Administration</name>
+    <url>http://rules.senate.gov/</url>
+    <thomas_id>SSRA</thomas_id>
+    <senate_committee_id>SSRA</senate_committee_id>
+    <rss_url>http://www.rules.senate.gov/public/?a=RSS.Feed</rss_url>
+    <wikipedia>United States Senate Committee on Rules and Administration</wikipedia>
+  </child44>
+  <child45>
+    <type>senate</type>
+    <name>Senate Committee on Small Business and Entrepreneurship</name>
+    <url>http://sbc.senate.gov/</url>
+    <thomas_id>SSSB</thomas_id>
+    <senate_committee_id>SSSB</senate_committee_id>
+    <rss_url>http://www.sbc.senate.gov/public/?a=RSS.Feed</rss_url>
+    <wikipedia>United States Senate Committee on Small Business and Entrepreneurship</wikipedia>
+  </child45>
+  <child46>
+    <type>senate</type>
+    <name>Senate Committee on Veterans' Affairs</name>
+    <url>http://veterans.senate.gov/</url>
+    <thomas_id>SSVA</thomas_id>
+    <senate_committee_id>SSVA</senate_committee_id>
+    <rss_url>http://www.veterans.senate.gov/rss.cfm</rss_url>
+    <minority_rss_url>http://www.veterans.senate.gov/rankingmember/rss.cfm</minority_rss_url>
+    <wikipedia>United States Senate Committee on Veterans' Affairs</wikipedia>
+  </child46>
+</root>
