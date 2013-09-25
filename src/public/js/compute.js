@@ -266,7 +266,7 @@ function compute_force() {
 	}
 	
 	//Delete the quadtree
-	delete quadtree;
+	//delete quadtree;
 	
 	//Calculate the forces on each of the nodes from the springs
 	for (var i=0, l=links.length; i < l; i++) {
@@ -443,8 +443,8 @@ function click(params) {
 
 function drag(params) {
 	if (fixedIdx != -1) {
-		var x = params['coords'][0];
-		var y = params['coords'][1];
+		var x = params['to'][0];
+		var y = params['to'][1];
 		var node = nodes[fixedIdx];
 		node['r'][0] = x;
 		node['r'][1] = y;
