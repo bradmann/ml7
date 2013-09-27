@@ -4,3 +4,7 @@ local.properties
 Thumbs.db
 .project
 .settings/
+.s3curl*
+data/congress/*
+.gitignore
+

@@ -1,8 +1,0 @@
-%awsSecretAccessKeys = (
-  personal => {
-    id => 'AKIAJCATDGYSFC2CEYIQ',
-    key => 'hG7GhZj6qL8hU0oZUWWJKRFKZRFOTymTHYT8yLzP',
-  } 
-);
-
-
