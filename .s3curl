@@ -1,7 +1,7 @@
 %awsSecretAccessKeys = (
   personal => {
-    id => 'AKIAIEFS3L4WDFERBC5A',
-    key => 'ul3IWap4kBBHCQNx7xbUovpikQuyfKeRsDcoJ8Fc',
+    id => 'A',
+    key => 'c',
   } 
 );
 
