@@ -136,4 +136,4 @@ input, select {
 
 section p {text-indent: 30px;}
 span.highlight {background-color: #FFFF00;}
-
+span.node {cursor: pointer;}

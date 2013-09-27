@@ -75,19 +75,19 @@
 				} else {
 					this.nodePalette[color] = {};
 				}
-				var cvs = document.createElement('canvas');
-				cvs.width = (mass * 2) + 4;
-				cvs.height = (mass * 2) + 4;
-				var ctx = cvs.getContext('2d');
-				ctx.save();
-				ctx.fillStyle = node['c'];
-				ctx.beginPath();
-				ctx.arc(cvs.width/2, cvs.height/2, mass, 0, 2 * Math.PI, false);
-				ctx.closePath();
-				ctx.stroke();
-				ctx.fill();
-				ctx.restore();
-				this.nodePalette[color][mass] = cvs;
+				var cvs = document.createElement('canvas'), selectedCvs = document.createElement('canvas');
+				cvs.width = (mass * 2) + 4; selectedCvs.width = (mass * 2) + 4;
+				cvs.height = (mass * 2) + 4; selectedCvs.height = (mass * 2) + 4;
+				var ctx = cvs.getContext('2d'), selectedCtx = selectedCvs.getContext('2d');
+				ctx.save(); selectedCtx.save();
+				ctx.fillStyle = node['c']; selectedCtx.fillStyle = node['c'];
+				ctx.beginPath(); selectedCtx.beginPath();
+				ctx.arc(cvs.width/2, cvs.height/2, mass, 0, 2 * Math.PI, false); selectedCtx.arc(selectedCvs.width/2, selectedCvs.height/2, mass, 0, 2 * Math.PI, false);
+				ctx.closePath(); selectedCtx.closePath();
+				ctx.stroke(); selectedCtx.lineWidth = 3; selectedCtx.stroke();
+				ctx.fill(); selectedCtx.fill();
+				ctx.restore(); selectedCtx.restore();
+				this.nodePalette[color][mass] = {'default': cvs, 'selected': selectedCvs};
 			}
 		},
 		clear: function() {
@@ -163,22 +163,9 @@
 				}
 				this.ctx.drawImage(this.images[img], pos[0] - mass, pos[1] - mass, mass*2, mass*2);
 			} else {
-				/*
-				this.ctx.fillStyle = node['c'];
-				this.ctx.beginPath();
-				this.ctx.arc(pos[0], pos[1], mass, 0, 2 * Math.PI, false);
-				this.ctx.closePath();
-				if (node['selected']) {
-					this.ctx.lineWidth = 3;
-				} else {
-					this.ctx.lineWidth = 1;
-				}
-				this.ctx.stroke();
-				this.ctx.fill();
-				*/
 				var color = node['c'];
 				var mass = node['m'];
-				var cvs = this.nodePalette[color][mass];
+				var cvs = node['selected'] ? this.nodePalette[color][mass]['selected'] : this.nodePalette[color][mass]['default'];
 				this.ctx.drawImage(cvs, 0, 0, cvs.width, cvs.height, pos[0] - cvs.width/2, pos[1] - cvs.height/2, cvs.width, cvs.height);
 			}
 			
@@ -219,8 +206,11 @@
 		},
 		zoomIn: function(delta) {
 			if (this.scaleY - (delta * .05) <= -1) {
-				this.scaleX = 1;
-				this.scaleY = -1;
+				if (this.scaleY != -1) {
+					this.scaleX = 1;
+					this.scaleY = -1;
+					this.draw();
+				}
 				return;
 			}
 			this.scaleX += (delta * .05);

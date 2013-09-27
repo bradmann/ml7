@@ -50,7 +50,7 @@ $(function(){
 		var connections = {};
 		for (var i=0; i<selectedNodes.length; i++) {
 			var nodeIdx = selectedNodes[i];
-			var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ' + nodes[nodeIdx]['text'];
+			var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="node">' + nodes[nodeIdx]['text'] + '</span>';
 			var neighbors = [];
 			for (var j=0; j<links.length; j++) {
 				if (links[j]['a'] == nodeIdx) {
@@ -76,7 +76,7 @@ $(function(){
 			var neighbors = nodemap[key];
 			html += '<h4>' + key + "</h4><ul>";
 			for (var i=0; i<neighbors.length; i++){
-				html += "<li>" + neighbors[i]['text'] + "</li>";
+				html += '<li><span class="node">' + neighbors[i]['text'] + '</span></li>';
 			}
 			html += "</ul>";
 		}
@@ -86,7 +86,7 @@ $(function(){
 			html += "<h3>Connections</h3>";
 			for (var key in connections) {
 				var nodeIdx = parseInt(key);
-				var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ' + nodes[nodeIdx]['text'];
+				var key = '<span style="background-color:' + nodes[nodeIdx]['c'] + '">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="node">' + nodes[nodeIdx]['text'] + '</span>';
 				var neighbors = [];
 				for (var j=0; j<links.length; j++) {
 					if (links[j]['a'] == nodeIdx) {
@@ -102,7 +102,7 @@ $(function(){
 			var neighbors = connectionmap[key];
 			html += "<h4>" + key + "</h4><ul>";
 			for (var i=0; i<neighbors.length; i++){
-				html += "<li>" + neighbors[i]['text'] + "</li>";
+				html += '<li><span class="node">' + neighbors[i]['text'] + '</span></li>';
 			}
 			html += "</ul>";
 		}
