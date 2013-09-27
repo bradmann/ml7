@@ -402,41 +402,57 @@ function mouseup(params) {
 	}
 }
 
-function click(params) {
-	var shiftKey = params['shiftKey'];
-	var coords = params['coords'];
-	var idx = getNodeIdxAtCoords(coords);
-	if (!shiftKey) {
-		for (var i=0; i<selectedNodes.length; i++) {
-			nodes[selectedNodes[i]]['selected'] = false;
-		}
-		selectedNodes = [];
+function deselectAllNodes() {
+	for (var i=0; i<selectedNodes.length; i++) {
+		nodes[selectedNodes[i]]['selected'] = false;
 	}
-	if (idx === null) {
-		for (var index in links) {
-			links[index]['selected'] = false;
-		}
-		postMessage({"cmd": "nodeSelect", "params": {"node": null, "selectedNodes": selectedNodes}});
-		postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
-		if (selectedNodes.length != 0) {
-			for (var i=0; i<selectedNodes.length; i++) {
-				nodes[selectedNodes[i]]['selected'] = false;
-			}
-		}
-		selectedNodes = [];
-		return;
+	selectedNodes = [];
+	for (var index in links) {
+		links[index]['selected'] = false;
 	}
+}
+
+function selectNode(idx) {
 	var node = nodes[idx];
 	node['selected'] = true;
+	selectedNodes.push(idx);
 	for (var index in links) {
 		var link = links[index];
 		if (link['a'] == idx || link['b'] == idx) {
 			link['selected'] = true;
-		} else if (!shiftKey) {
+		}
+	}
+	return node;
+}
+
+function deselectNode(idx) {
+	var node = nodes[idx];
+	node['selected'] = false;
+	selectedNodes.splice(idx, 1);
+	for (var index in links) {
+		var link = links[index];
+		if ((link['a'] == idx || link['b'] == idx) && !(link['a'] in selectedNodes || link['b'] in selectedNodes)) {
 			link['selected'] = false;
 		}
 	}
-	selectedNodes.push(idx);
+	return node;
+}
+
+function click(params) {
+	var shiftKey = params['shiftKey'];
+	var coords = params['coords'];
+	var idx = getNodeIdxAtCoords(coords);
+	var node = null;
+	if (idx === null) {
+		deselectAllNodes();
+	} else if (!shiftKey) {
+		deselectAllNodes();
+		node = selectNode(idx);
+	} else if (idx in selectedNodes) {
+		node = deselectNode(idx);
+	} else {
+		node = selectNode(idx);
+	}
 	postMessage({"cmd": "nodeSelect", "params": {"node": node, "selectedNodes": selectedNodes}});
 	postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
 }

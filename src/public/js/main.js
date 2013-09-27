@@ -17,8 +17,10 @@ if (typeof Object.create !== 'function') {
 $(function(){
 	var engine = null;
 	var canvas = $('#canvas')[0];
-	var nodes = [], links = [];
+	var nodes = [], links = [], selected = [];
 	var mass = 10;
+
+	$('#result').tabs().hide();
 	
 	function createWikipediaUrl(id) {
 		var url = 'http://en.wikipedia.org/wiki/' + id.toString();
@@ -117,8 +119,7 @@ $(function(){
 			delete engine;
 			engine = null;
 		}
-		$('#result').hide();
-		$('#resultframe').hide();
+		$('#result').html('<ul></ul>').hide();
 		$('#tabdata').empty();
 		
 		$.ajax({
@@ -184,9 +185,10 @@ $(function(){
 
 	$(document).on('nev:nodeselect', function(evt, node, selectedNodes) {
 		if (node == undefined) {
-			$('#result').hide();
-			$('#resultframe').hide();
+			$('#result').html('<ul></ul>').hide();
+			//$('#resultframe').hide();
 			$('#tabdata').empty();
+			selected = selectedNodes;
 			return;
 		}
 		var index = null;
@@ -196,25 +198,39 @@ $(function(){
 				break;
 			}
 		}
-		var data = node['data'];
-		if (data['type'] == 'congress') {
-			$('#result').hide();
-			var id = data['id'];
-			var url = createWikipediaUrl(id);
-			$('#resultframe').attr('src', url);
-			$('#resultframe').show();
+		if (selectedNodes.length < selected.length) {
+			var id = node['data']['id'];
+			$('#result *[data-id="' + id + '"]').remove();
+			$('#result').tabs('refresh').show();
+			$("#result").tabs("option", "active", $('#result ul li').length - 1);
 		} else {
-			data['q'] = $('#search').val();
-			$.ajax({
-				url: '/main/content.json',
-				data: data,
-				type: 'get',
-				success: function(data) {
-					$('#result').html('<article>' + data['message'] + '</article>');
-				}
-			});
-			$('#resultframe').hide();
-			$('#result').show();
+			if (selectedNodes.length == 1) {
+				$('#result ul li,#result div').remove();
+			}
+			var data = node['data'];
+			var id = data['id'];
+			if (data['type'] == 'congress') {
+				var url = createWikipediaUrl(id);
+				$('#result ul').append('<li data-id="' + id + '"><a href="#tab_' + id + '">' + node['text'] + '</a></li>');
+				$('#result').append('<div id="tab_' + id + '"><iframe></iframe></div>');
+				$('#tab_' + id + ' iframe').attr('src', url);
+				$('#result').tabs('refresh').show();
+				$("#result").tabs("option", "active", $('#result ul li').length - 1);
+			} else {
+				data['q'] = $('#search').val();
+				$.ajax({
+					url: '/main/content.json',
+					data: data,
+					type: 'get',
+					success: function(data) {
+						$('#result ul').append('<li data-id="' + id + '"><a href="#tab_' + id + '">' + node['text'] + '</a></li>');
+						$('#result').append('<div id="tab_' + id + '"></div>');
+						$('#tab_' + id).html('<article>' + data['message'] + '</article>');
+						$('#result').tabs('refresh').show();
+						$("#result").tabs("option", "active", $('#result ul li').length - 1);
+					}
+				});
+			}
 		}
 
 		nodeDetail(selectedNodes);

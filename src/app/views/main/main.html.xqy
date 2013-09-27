@@ -29,7 +29,9 @@ declare option xdmp:mapping "false";
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/themes/smoothness/jquery-ui-1.10.3.custom.min.css"/>
     <script src="js/lib/jquery-1.7.1.min.js"></script>
+    <script src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/lib/jquery.mousewheel.js"></script>
     <script src="js/compute.js"></script>
     <script src="js/main.js"></script>
@@ -46,7 +48,7 @@ declare option xdmp:mapping "false";
       <canvas id="canvas" width="1000" height="500"></canvas>
     </div>
     <div id="tabdata"  width="295" height="500">&nbsp;</div>
-    <div id="result">&nbsp;</div>
-    <iframe id="resultframe">&nbsp;</iframe>
+    <div id="result"><ul></ul></div>
+    <!-- <iframe id="resultframe">&nbsp;</iframe> -->
   </body>
 </html>

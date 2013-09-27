@@ -126,7 +126,6 @@ input, select {
 #canvas:active, #canvas:focus {cursor: default;}
 #search {font-size: 18pt; width: 1300px; margin-bottom:10px; margin-top:10px;}
 #result {width: 1300px; text-align: left; margin: 0 auto;}
-#resultframe {width: 1300px; height: 500px;}
 #message {width: 1300px; text-align: left; margin: 0 auto;}
 #tabdata  {display: inline-block; position: relative; width:295px; height:500px; border:1px solid black; overflow:scroll; text-align: left;}
 
@@ -137,3 +136,4 @@ input, select {
 section p {text-indent: 30px;}
 span.highlight {background-color: #FFFF00;}
 span.node {cursor: pointer;}
+iframe {width: 1250px; height: 700px;}
