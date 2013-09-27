@@ -1,5 +1,5 @@
 DEMO_HOME=$(dirname $0)
-mlcp.sh import -host localhost -port 8081 -username admin -password ML1234 \
+mlcp.sh import -host localhost -port 8041 -username admin -password admin \
                -input_file_path $DEMO_HOME/data/congress/ \
                -input_file_type documents \
                -document_type xml \

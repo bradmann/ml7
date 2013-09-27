@@ -12226,7 +12226,7 @@
         <fax>202-225-5641</fax>
         <contact_form>https://forms.house.gov/davis/webforms/issue_subscribe.htm</contact_form>
         <office>2159 Rayburn House Office Building</office>
-        <rss_url>http://davis.house.gov/index.php?format=feed&type=rss</rss_url>
+        <rss_url>http://davis.house.gov/index.php?format=feed&amp;type=rss</rss_url>
       </child8>
     </terms>
   </child131>
