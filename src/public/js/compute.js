@@ -428,7 +428,7 @@ function selectNode(idx) {
 function deselectNode(idx) {
 	var node = nodes[idx];
 	node['selected'] = false;
-	selectedNodes.splice(idx, 1);
+	selectedNodes.splice(selectedNodes.indexOf(idx), 1);
 	for (var index in links) {
 		var link = links[index];
 		if ((link['a'] == idx || link['b'] == idx) && !(link['a'] in selectedNodes || link['b'] in selectedNodes)) {
@@ -448,7 +448,7 @@ function click(params) {
 	} else if (!shiftKey) {
 		deselectAllNodes();
 		node = selectNode(idx);
-	} else if (idx in selectedNodes) {
+	} else if (selectedNodes.indexOf(idx) != -1) {
 		node = deselectNode(idx);
 	} else {
 		node = selectNode(idx);

@@ -203,6 +203,7 @@ $(function(){
 			$('#result *[data-id="' + id + '"]').remove();
 			$('#result').tabs('refresh').show();
 			$("#result").tabs("option", "active", $('#result ul li').length - 1);
+			selected = selectedNodes;
 		} else {
 			if (selectedNodes.length == 1) {
 				$('#result ul li,#result div').remove();
@@ -231,6 +232,7 @@ $(function(){
 					}
 				});
 			}
+			selected = selectedNodes;
 		}
 
 		nodeDetail(selectedNodes);
