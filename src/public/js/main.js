@@ -26,9 +26,9 @@ $(function(){
 		var url = 'http://en.wikipedia.org/wiki/' + id.toString();
 		if (id.toString().substr(-1) == '1' && id.toString().substr(-2) != '11') {
 			url += 'st';
-		} else if (id.toString().substr(-1) == '2') {
+		} else if (id.toString().substr(-1) == '2' && id.toString().substr(-2) != '12') {
 			url += 'nd';
-		} else if (id.toString().substr(-1) == '3') {
+		} else if (id.toString().substr(-1) == '3' && id.toString().substr(-2) != '13') {
 			url += 'rd';
 		} else {
 			url += 'th';
