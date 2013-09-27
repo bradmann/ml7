@@ -1,8 +1,0 @@
-%awsSecretAccessKeys = (
-  personal => {
-    id => 'A',
-    key => 'c',
-  } 
-);
-
-
