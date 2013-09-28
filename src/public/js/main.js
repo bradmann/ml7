@@ -116,6 +116,9 @@ $(function(){
 
 	function search() {
 		$('#search').css('background', 'url(/images/loading.gif) no-repeat right 10px center');
+		if (!$('#logo').is(':visible')) {
+			$('#logo').fadeIn();
+		}
 		if (engine != null) {
 			engine.destroy();
 			delete engine;
@@ -257,6 +260,16 @@ $(function(){
 		}
 
 		nodeDetail(selectedNodes);
+	});
+
+	$(document).on('nev:error', function(evt, message) {
+		var canvas = $('#canvas')[0];
+		var ctx = canvas.getContext('2d');
+		ctx.save();
+		ctx.font = '20pt Calibri';
+		ctx.fillStyle = '#000000';
+		ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+		ctx.restore();
 	});
 
 	$('#search').keypress(function (e) {

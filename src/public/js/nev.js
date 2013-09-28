@@ -194,9 +194,10 @@
 		},
 		message: function(message) {
 			this.ctx.save();
-			this.ctx.scale(this.scaleX, this.scaleY);
 			this.ctx.fillStyle = "#000000";
-			this.ctx.fillText(message, -(this.width / 2) + 100, (this.height / 2));
+			this.ctx.textAlign = 'left';
+			this.ctx.font = '20pt Calibri';
+			this.ctx.fillText(message, 0, (this.height - 10));
 			this.ctx.restore();
 		},
 		pan: function(from, to) {
@@ -242,6 +243,12 @@
 		loadGraph: function(nodes, links) {
 			this.visEngine.buildPalette(nodes);
 			this.computeEngine.postMessage({"cmd": "init", "params": {"nodes": nodes, "links": links, "width": 10000, "height": 10000}});
+		},
+		simulationComplete: function(params) {
+			if (params['status'] == 'error') {
+				$(document).trigger('nev:error', [params['message']]);
+				this.computeEngine.terminate();
+			}
 		},
 		update: function(params) {
 			this.visEngine.nodes = params["nodes"];

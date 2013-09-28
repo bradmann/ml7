@@ -2,6 +2,8 @@ Cool Searches
 
 "North Korea"
 "Affordable Care Act"
+"Operation Iraqi Freedom"
+furlough
 osama
 marijuana
 iraq AND veteran
@@ -14,3 +16,4 @@ shuttle
 cyber
 stem cell
 assault rifle
+genetic

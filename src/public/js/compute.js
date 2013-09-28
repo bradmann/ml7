@@ -1,6 +1,6 @@
 var nodes = [], links = [], quadtree, width, height, timer;
 var theta = .5, coulombConstant = 10000000, springConstant = 1, damping = .45, timeStep = .5, k = 0, interval = (1/60), temperature = 1,
-maxVel = 200, fixedIdx = -1, steadyState = 20, lowEntropy = 0, scaleFactor = 2.5, selectedNodes = [];
+maxVel = 200, fixedIdx = -1, steadyState = .5, lowEntropy = 0, scaleFactor = 2.5, selectedNodes = [];
 
 function repel(node1, node2) {
 	var x = (node2['r'][0] - node1['r'][0]) * scaleFactor;
@@ -116,6 +116,9 @@ function quad_insert(i, n) {
 			quad_insert(i, get_child(i, n));
 		} catch (e) {
 			postMessage({"cmd": "log", "params": {"message": e.toString()}});
+			if (e instanceof RangeError) {
+				postMessage({"cmd": "simulationComplete", "params": {"status": "error", "message": "Too many nodes! (" + nodes.length + ")"}});
+			}
 		}
 	} else {
 		n["val"] = i;
@@ -221,6 +224,7 @@ function start() {
 	for (var i=0, l=nodes.length; i < l; i++) {
 		nodes[i]['f'] = [0,0];
 	}
+	springConstant = nodes.length / 10;
 	timer = setTimeout(function(){tick()}, 0);
 }
 
@@ -264,9 +268,6 @@ function compute_force() {
 		if (node['fixed']) {continue;}
 		tree_force(node, quadtree);
 	}
-	
-	//Delete the quadtree
-	//delete quadtree;
 	
 	//Calculate the forces on each of the nodes from the springs
 	for (var i=0, l=links.length; i < l; i++) {
@@ -356,7 +357,7 @@ function tick() {
 		damping -= .01;
 	}
 	
-	if (entropy < steadyState) {
+	if (entropy / l < steadyState) {
 		lowEntropy++;
 	} else {
 		lowEntropy = 0;
@@ -369,6 +370,7 @@ function tick() {
 		timer = null;
 		postMessage({"cmd": "log", "params": {"message": "simulation complete"}});
 		postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
+		postMessage({"cmd": "simulationComplete", "params": {"status": "ok"}});
 	}
 }
 
