@@ -1,11 +1,11 @@
 var nodes = [], links = [], quadtree, width, height, timer;
-var theta = .5, coulombConstant = 1000, springConstant = 100, damping = .7, timeStep = 1, k = 0, interval = (1/30), temperature = 1,
-maxVel = 100, fixedIdx = -1, steadyState = .1, lowEntropy = 0, selectedNodes = [];
+var theta = .5, coulombConstant = 10000000, springConstant = 1, damping = .45, timeStep = .5, k = 0, interval = (1/60), temperature = 1,
+maxVel = 200, fixedIdx = -1, steadyState = 20, lowEntropy = 0, scaleFactor = 2.5, selectedNodes = [];
 
 function repel(node1, node2) {
-	var x = node2['r'][0] - node1['r'][0];
-	var y = node2['r'][1] - node1['r'][1];
-	var r = Math.sqrt(x*x + y*y) / 4;
+	var x = (node2['r'][0] - node1['r'][0]) * scaleFactor;
+	var y = (node2['r'][1] - node1['r'][1]) * scaleFactor;
+	var r = Math.sqrt(x*x + y*y);
 	if (r == 0) {return [0,0];};
 	
 	var force = -coulombConstant / (r*r);
@@ -14,9 +14,9 @@ function repel(node1, node2) {
 }
 
 function attract(node1, node2) {
-	var x = node2['r'][0] - node1['r'][0];
-	var y = node2['r'][1] - node1['r'][1];
-	var d = Math.sqrt(x*x + y*y) / 4;
+	var x = (node2['r'][0] - node1['r'][0]) * scaleFactor;
+	var y = (node2['r'][1] - node1['r'][1]) * scaleFactor;
+	var d = Math.sqrt(x*x + y*y);
 	var force = d / springConstant;
 	
 	return [(force * (x/d)), (force * (y/d))];
@@ -26,7 +26,7 @@ function centerPull(node) {
 	var x = node['r'][0] - 0;
 	var y = node['r'][1] - 0;
 	var d = Math.sqrt(x*x + y*y);
-	var force = -Math.log(d/100);
+	var force = -Math.log(d * 10);
 	return [(force * (x/d)), (force * (y/d))];
 	//return [0, 0];
 }
@@ -335,13 +335,17 @@ function tick() {
 		// Calculate node position
 		pos[0] = pos[0] + (timeStep * vel[0]);
 		if (pos[0] > maxX || pos[0] < -maxX) {
-			width = width * 2;
+			while (width / 2 < Math.abs(pos[0])) {
+				width = width * 2;
+			}
 			postMessage({"cmd": "log", "params": {"message": "newWidth: " + width}});
 		}
 		
 		pos[1] = pos[1] + (timeStep * vel[1]);
 		if (pos[1] > maxY || pos[1] < -maxY) {
-			height = height * 2;
+			while (height / 2 < Math.abs(pos[1])) {
+				height = height * 2;
+			}
 			postMessage({"cmd": "log", "params": {"message": "newHeight: " + height}});
 		}
 	}
@@ -349,10 +353,10 @@ function tick() {
 	postMessage({"cmd": "update", "params": {"nodes": nodes, "links": links}});
 
 	if (entropy > 2000) {
-		damping -= .05;
+		damping -= .01;
 	}
 	
-	if (entropy / l < steadyState) {
+	if (entropy < steadyState) {
 		lowEntropy++;
 	} else {
 		lowEntropy = 0;
@@ -431,7 +435,7 @@ function deselectNode(idx) {
 	selectedNodes.splice(selectedNodes.indexOf(idx), 1);
 	for (var index in links) {
 		var link = links[index];
-		if ((link['a'] == idx || link['b'] == idx) && !(link['a'] in selectedNodes || link['b'] in selectedNodes)) {
+		if ((link['a'] == idx || link['b'] == idx) && !(selectedNodes.indexOf(link['a']) > -1 || selectedNodes.indexOf(link['b']) > -1)) {
 			link['selected'] = false;
 		}
 	}

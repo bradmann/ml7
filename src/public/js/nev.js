@@ -241,7 +241,7 @@
 		},
 		loadGraph: function(nodes, links) {
 			this.visEngine.buildPalette(nodes);
-			this.computeEngine.postMessage({"cmd": "init", "params": {"nodes": nodes, "links": links, "width": 1000, "height": 1000}});
+			this.computeEngine.postMessage({"cmd": "init", "params": {"nodes": nodes, "links": links, "width": 10000, "height": 10000}});
 		},
 		update: function(params) {
 			this.visEngine.nodes = params["nodes"];

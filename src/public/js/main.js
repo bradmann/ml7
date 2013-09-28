@@ -19,6 +19,8 @@ $(function(){
 	var canvas = $('#canvas')[0];
 	var nodes = [], links = [], selected = [];
 	var mass = 10;
+	var height = 10000;
+	var width = 10000;
 
 	$('#result').tabs().hide();
 	
@@ -163,12 +165,51 @@ $(function(){
 					links.push({'a': sectionIdx, 'b': congressIdx});
 				}
 
+				for (var i = 0; i < nodes.length; i++) {
+					var pos = radialPosition(i, nodes.length, 500);
+					nodes[i]['r'] = pos;
+				}
+
 				$('#logo').fadeOut();
 				engine = Object.create(NEV);
 				engine.init(canvas, 60);
 				engine.loadGraph(nodes, links);
 			}
 		});
+	}
+
+	function radialPosition(idx, count, radius) {
+		var angle = (idx/count) * (2 * Math.PI);
+		var x = radius * Math.cos(angle);
+		var y = radius * Math.sin(angle) * (height / width);
+		return [Math.round(x), Math.round(y)];
+	}
+
+	function showNodeTab(node) {
+		var data = node['data'];
+		var id = data['id'];
+		if (data['type'] == 'congress') {
+			var url = createWikipediaUrl(id);
+			$('#result ul').append('<li data-id="' + id + '"><a href="#tab_' + id + '">' + node['text'] + '</a></li>');
+			$('#result').append('<div id="tab_' + id + '"><iframe></iframe></div>');
+			$('#tab_' + id + ' iframe').attr('src', url);
+			$('#result').tabs('refresh').show();
+			$("#result").tabs("option", "active", $('#result ul li').length - 1);
+		} else {
+			data['q'] = $('#search').val();
+			$.ajax({
+				url: '/main/content.json',
+				data: data,
+				type: 'get',
+				success: function(data) {
+					$('#result ul').append('<li data-id="' + id + '"><a href="#tab_' + id + '">' + node['text'] + '</a></li>');
+					$('#result').append('<div id="tab_' + id + '"></div>');
+					$('#tab_' + id).html('<article>' + data['message'] + '</article>');
+					$('#result').tabs('refresh').show();
+					$("#result").tabs("option", "active", $('#result ul li').length - 1);
+				}
+			});
+		}
 	}
 
 	$('#canvas').on('mousewheel', function(evt, delta, deltaX, deltaY) {
@@ -186,7 +227,6 @@ $(function(){
 	$(document).on('nev:nodeselect', function(evt, node, selectedNodes) {
 		if (node == undefined) {
 			$('#result').html('<ul></ul>').hide();
-			//$('#resultframe').hide();
 			$('#tabdata').empty();
 			selected = selectedNodes;
 			return;
@@ -199,39 +239,20 @@ $(function(){
 			}
 		}
 		if (selectedNodes.length < selected.length) {
-			var id = node['data']['id'];
-			$('#result *[data-id="' + id + '"]').remove();
-			$('#result').tabs('refresh').show();
-			$("#result").tabs("option", "active", $('#result ul li').length - 1);
+			var nodeSelector = '#result *[data-id]';
+			for (var i=0; i<selectedNodes.length; i++) {
+				nodeSelector += '[data-id!="' + selectedNodes[i] + '"]';
+			}
+			$(nodeSelector).remove();
+			if ($('#result *[data-id="' + node['data']['id'] + '"]').length < 1) {
+				showNodeTab(node);
+			}
 			selected = selectedNodes;
 		} else {
 			if (selectedNodes.length == 1) {
 				$('#result ul li,#result div').remove();
 			}
-			var data = node['data'];
-			var id = data['id'];
-			if (data['type'] == 'congress') {
-				var url = createWikipediaUrl(id);
-				$('#result ul').append('<li data-id="' + id + '"><a href="#tab_' + id + '">' + node['text'] + '</a></li>');
-				$('#result').append('<div id="tab_' + id + '"><iframe></iframe></div>');
-				$('#tab_' + id + ' iframe').attr('src', url);
-				$('#result').tabs('refresh').show();
-				$("#result").tabs("option", "active", $('#result ul li').length - 1);
-			} else {
-				data['q'] = $('#search').val();
-				$.ajax({
-					url: '/main/content.json',
-					data: data,
-					type: 'get',
-					success: function(data) {
-						$('#result ul').append('<li data-id="' + id + '"><a href="#tab_' + id + '">' + node['text'] + '</a></li>');
-						$('#result').append('<div id="tab_' + id + '"></div>');
-						$('#tab_' + id).html('<article>' + data['message'] + '</article>');
-						$('#result').tabs('refresh').show();
-						$("#result").tabs("option", "active", $('#result ul li').length - 1);
-					}
-				});
-			}
+			showNodeTab(node);
 			selected = selectedNodes;
 		}
 
