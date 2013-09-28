@@ -8,3 +8,12 @@ mlcp.sh import -host localhost -port 8041 -username admin -password admin \
                -mode local \
                -namespace "http://thomas.loc.gov/bills" \
 	       -streaming
+mlcp.sh import -host localhost -port 8041 -username admin -password admin \
+               -input_file_path $DEMO_HOME/data/congress/112/bills/ \
+               -document_type xml \
+               -output_collections bills \
+               -output_uri_replace "$DEMO_HOME/data/congress,'',data.xml^,''" \
+               -mode local \
+               -namespace "http://thomas.loc.gov/bills" \
+               -streaming
+
