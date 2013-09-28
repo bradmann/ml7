@@ -26,8 +26,34 @@ let $subject := sem:iri(fn:concat("http://congress.gov/members/", $id))
 let $triples :=
  (
   sem:triple($subject, sem:iri("http://purl.org/dc/terms/identifier"), $id),
-  sem:triple($subject, sem:iri("http://www.w3.org/2000/01/rdf-schema#label"), xs:string($legislator//name/official_full/text()))
+  sem:triple(
+    $subject, 
+    sem:iri("http://www.w3.org/2000/01/rdf-schema#label"), 
+    xs:string($legislator//name/official_full/text())
+  ),
+  let $data := $legislator//terms/element()[fn:last()]
+  return
+  (
+    sem:triple(
+      $subject, 
+      sem:iri("http://xmlns.com/foaf/member"),
+      $data/party/text()
+    ),
+    sem:triple(
+      $subject,
+      sem:iri("http://xmlns.com/foaf/member"),
+      $data/type/text()
+    ),
+    sem:triple(
+      $subject,
+      sem:iri("http://congress.gov/members/represents"),
+      $data/state/text()
+    )
+  )
  )
-return sem:rdf-insert($triples)
+return 
+  sem:rdf-insert(
+    $triples
+  )
 
 
